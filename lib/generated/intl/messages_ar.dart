@@ -22,6 +22,41 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appBarTitle": MessageLookupByLibrary.simpleMessage("سوق")
+        "appBarLogin": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
+        "appBarSignUp": MessageLookupByLibrary.simpleMessage("حساب جديد"),
+        "appBarTitle": MessageLookupByLibrary.simpleMessage("سوق"),
+        "appleButton": MessageLookupByLibrary.simpleMessage("تسجيل بواسطة أبل"),
+        "createAccount": MessageLookupByLibrary.simpleMessage("قم بإنشاء حساب"),
+        "createAccountQuestion":
+            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "emailHintText":
+            MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "facebookButton":
+            MessageLookupByLibrary.simpleMessage("تسجيل بواسطة فيسبوك"),
+        "forgetPass":
+            MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور؟"),
+        "googleButton":
+            MessageLookupByLibrary.simpleMessage("تسجيل بواسطة جوجل"),
+        "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "loginDivider": MessageLookupByLibrary.simpleMessage("أو"),
+        "nameHintText": MessageLookupByLibrary.simpleMessage("الاسم كامل"),
+        "passHintText": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "skipButton": MessageLookupByLibrary.simpleMessage("تخطي"),
+        "startButton": MessageLookupByLibrary.simpleMessage("ابدأ الان"),
+        "subtitle1": MessageLookupByLibrary.simpleMessage(
+            "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية."),
+        "subtitle2": MessageLookupByLibrary.simpleMessage(
+            "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية."),
+        "title": MessageLookupByLibrary.simpleMessage("سوق"),
+        "title1": MessageLookupByLibrary.simpleMessage("هوب"),
+        "title2": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
+        "validateEmail": MessageLookupByLibrary.simpleMessage(
+            "من فضلك ادخل البريد الإلكتروني"),
+        "validateEmailCheck": MessageLookupByLibrary.simpleMessage(
+            "من فضلك ادخل قيمة تحتوي علي \'@\' "),
+        "validatePass":
+            MessageLookupByLibrary.simpleMessage("من فضلك ادخل كلمة المرور"),
+        "validatorName":
+            MessageLookupByLibrary.simpleMessage("من فضلك ادخل اسمك اولا")
       };
 }

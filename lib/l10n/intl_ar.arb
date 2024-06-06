@@ -1,3 +1,27 @@
 {
-  "appBarTitle" : "سوق"
+  "appBarTitle" : "سوق",
+  "title" : "سوق",
+  "title1" : "هوب",
+  "title2" : "ابحث وتسوق",
+  "subtitle1" : "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.",
+  "subtitle2" : "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية.",
+  "skipButton" : "تخطي",
+  "startButton" : "ابدأ الان",
+  "appBarLogin" : "تسجيل دخول",
+  "appBarSignUp": "حساب جديد",
+  "nameHintText" : "الاسم كامل",
+  "validatorName" : "من فضلك ادخل اسمك اولا",
+  "emailHintText" : "البريد الإلكتروني",
+  "validateEmail" : "من فضلك ادخل البريد الإلكتروني",
+  "validateEmailCheck" : "من فضلك ادخل قيمة تحتوي علي '@' ",
+  "passHintText" : "كلمة المرور",
+  "validatePass" : "من فضلك ادخل كلمة المرور",
+  "loginButton" : "تسجيل الدخول",
+  "forgetPass" : "هل نسيت كلمة المرور؟",
+  "createAccountQuestion" : "ليس لديك حساب؟",
+  "createAccount" : "قم بإنشاء حساب",
+  "googleButton" : "تسجيل بواسطة جوجل",
+  "appleButton" : "تسجيل بواسطة أبل",
+  "facebookButton" : "تسجيل بواسطة فيسبوك",
+  "loginDivider" : "أو"
 }

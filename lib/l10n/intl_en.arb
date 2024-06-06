@@ -1,3 +1,27 @@
 {
-  "appBarTitle" : "Souq"
+  "appBarTitle": "Souq",
+  "title": "SOUQ",
+  "title1": "HUB",
+  "title2": "Search and shop",
+  "subtitle1": "Discover a unique shopping experience with FruitHUB. Explore our wide range of premium fresh fruits and get the best offers and high quality.",
+  "subtitle2": "We offer you the best carefully selected fruits. See details, photos and reviews to make sure you choose the perfect fruit.",
+  "skipButton": "Skip",
+  "startButton": "Start now",
+  "appBarLogin": "Login",
+  "appBarSignUp": "New Account",
+  "nameHintText" : "Full name",
+  "validatorName" : "Please enter your name first",
+  "emailHintText": "Email",
+  "validateEmail" : "Please enter your email",
+  "validateEmailCheck" : "Please enter valid '@' ",
+  "passHintText": "Password",
+  "validatePass" : "Please enter your password",
+  "loginButton": "Login",
+  "forgetPass": "Forget password?",
+  "createAccountQuestion": "Dont't have account?",
+  "createAccount": "Create one",
+  "googleButton": "Continue with google",
+  "appleButton": "Continue with apple",
+  "facebookButton": "Continue with facebook",
+  "loginDivider": "Or"
 }

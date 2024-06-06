@@ -22,6 +22,40 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appBarTitle": MessageLookupByLibrary.simpleMessage("Souq")
+        "appBarLogin": MessageLookupByLibrary.simpleMessage("Login"),
+        "appBarSignUp": MessageLookupByLibrary.simpleMessage("New Account"),
+        "appBarTitle": MessageLookupByLibrary.simpleMessage("Souq"),
+        "appleButton":
+            MessageLookupByLibrary.simpleMessage("Continue with apple"),
+        "createAccount": MessageLookupByLibrary.simpleMessage("Create one"),
+        "createAccountQuestion":
+            MessageLookupByLibrary.simpleMessage("Dont\'t have account?"),
+        "emailHintText": MessageLookupByLibrary.simpleMessage("Email"),
+        "facebookButton":
+            MessageLookupByLibrary.simpleMessage("Continue with facebook"),
+        "forgetPass": MessageLookupByLibrary.simpleMessage("Forget password?"),
+        "googleButton":
+            MessageLookupByLibrary.simpleMessage("Continue with google"),
+        "loginButton": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginDivider": MessageLookupByLibrary.simpleMessage("Or"),
+        "nameHintText": MessageLookupByLibrary.simpleMessage("Full name"),
+        "passHintText": MessageLookupByLibrary.simpleMessage("Password"),
+        "skipButton": MessageLookupByLibrary.simpleMessage("Skip"),
+        "startButton": MessageLookupByLibrary.simpleMessage("Start now"),
+        "subtitle1": MessageLookupByLibrary.simpleMessage(
+            "Discover a unique shopping experience with FruitHUB. Explore our wide range of premium fresh fruits and get the best offers and high quality."),
+        "subtitle2": MessageLookupByLibrary.simpleMessage(
+            "We offer you the best carefully selected fruits. See details, photos and reviews to make sure you choose the perfect fruit."),
+        "title": MessageLookupByLibrary.simpleMessage("SOUQ"),
+        "title1": MessageLookupByLibrary.simpleMessage("HUB"),
+        "title2": MessageLookupByLibrary.simpleMessage("Search and shop"),
+        "validateEmail":
+            MessageLookupByLibrary.simpleMessage("Please enter your email"),
+        "validateEmailCheck":
+            MessageLookupByLibrary.simpleMessage("Please enter valid \'@\' "),
+        "validatePass":
+            MessageLookupByLibrary.simpleMessage("Please enter your password"),
+        "validatorName":
+            MessageLookupByLibrary.simpleMessage("Please enter your name first")
       };
 }

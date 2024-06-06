@@ -59,6 +59,246 @@ class S {
       args: [],
     );
   }
+
+  /// `SOUQ`
+  String get title {
+    return Intl.message(
+      'SOUQ',
+      name: 'title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `HUB`
+  String get title1 {
+    return Intl.message(
+      'HUB',
+      name: 'title1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search and shop`
+  String get title2 {
+    return Intl.message(
+      'Search and shop',
+      name: 'title2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discover a unique shopping experience with FruitHUB. Explore our wide range of premium fresh fruits and get the best offers and high quality.`
+  String get subtitle1 {
+    return Intl.message(
+      'Discover a unique shopping experience with FruitHUB. Explore our wide range of premium fresh fruits and get the best offers and high quality.',
+      name: 'subtitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We offer you the best carefully selected fruits. See details, photos and reviews to make sure you choose the perfect fruit.`
+  String get subtitle2 {
+    return Intl.message(
+      'We offer you the best carefully selected fruits. See details, photos and reviews to make sure you choose the perfect fruit.',
+      name: 'subtitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get skipButton {
+    return Intl.message(
+      'Skip',
+      name: 'skipButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start now`
+  String get startButton {
+    return Intl.message(
+      'Start now',
+      name: 'startButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get appBarLogin {
+    return Intl.message(
+      'Login',
+      name: 'appBarLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Account`
+  String get appBarSignUp {
+    return Intl.message(
+      'New Account',
+      name: 'appBarSignUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full name`
+  String get nameHintText {
+    return Intl.message(
+      'Full name',
+      name: 'nameHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your name first`
+  String get validatorName {
+    return Intl.message(
+      'Please enter your name first',
+      name: 'validatorName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get emailHintText {
+    return Intl.message(
+      'Email',
+      name: 'emailHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email`
+  String get validateEmail {
+    return Intl.message(
+      'Please enter your email',
+      name: 'validateEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter valid '@' `
+  String get validateEmailCheck {
+    return Intl.message(
+      'Please enter valid \'@\' ',
+      name: 'validateEmailCheck',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get passHintText {
+    return Intl.message(
+      'Password',
+      name: 'passHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your password`
+  String get validatePass {
+    return Intl.message(
+      'Please enter your password',
+      name: 'validatePass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get loginButton {
+    return Intl.message(
+      'Login',
+      name: 'loginButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forget password?`
+  String get forgetPass {
+    return Intl.message(
+      'Forget password?',
+      name: 'forgetPass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dont't have account?`
+  String get createAccountQuestion {
+    return Intl.message(
+      'Dont\'t have account?',
+      name: 'createAccountQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create one`
+  String get createAccount {
+    return Intl.message(
+      'Create one',
+      name: 'createAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with google`
+  String get googleButton {
+    return Intl.message(
+      'Continue with google',
+      name: 'googleButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with apple`
+  String get appleButton {
+    return Intl.message(
+      'Continue with apple',
+      name: 'appleButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with facebook`
+  String get facebookButton {
+    return Intl.message(
+      'Continue with facebook',
+      name: 'facebookButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or`
+  String get loginDivider {
+    return Intl.message(
+      'Or',
+      name: 'loginDivider',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
