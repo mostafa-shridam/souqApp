@@ -1,9 +1,11 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:souq/constants/constants.dart';
+import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/widgets/custom_button.dart';
-import 'package:souq/features/auth/presentation/views/login/login_view.dart';
+import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/features/on_boarding/views/widgets/on_boarding_page_view.dart';
 import 'package:souq/generated/l10n.dart';
 
@@ -17,7 +19,7 @@ class OnBoardingBody extends StatefulWidget {
 class _OnBoardingBodyState extends State<OnBoardingBody> {
   late PageController pageController;
 
-  var currentPage = 0;
+  int currentPage = 0;
 
   @override
   void initState() {
@@ -60,9 +62,9 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
           maintainAnimation: true,
           maintainState: true,
           child: CustomButton(
-            onPressed: ()
-            {
-               Navigator.pushReplacementNamed(context, LoginView.routeName);
+            onPressed: () {
+              Prefs.setBool(kIsOnBoardingSeen, true);
+              Navigator.pushReplacementNamed(context, SginInView.routeName);
             },
             text: S.of(context).startButton,
           ),

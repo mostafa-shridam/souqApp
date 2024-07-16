@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">Souq</string>
+<string name="facebook_app_id">363835260148477</string>
+<string name="fb_login_protocol_scheme">fb1234</string>
+<string name="facebook_client_token">ce78e4ed146bdba657fe226c12cf4886</string>
+
+
+</resources>

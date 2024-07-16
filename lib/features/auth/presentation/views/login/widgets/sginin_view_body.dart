@@ -1,78 +1,42 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:souq/constants/constants.dart';
+import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/widgets/custom_button.dart';
 import 'package:souq/core/widgets/custom_divider.dart';
 import 'package:souq/core/widgets/custom_text_button.dart';
 import 'package:souq/core/widgets/custom_text_form_filed.dart';
+import 'package:souq/features/auth/presentation/views/cubits/signin_cubit/signin_cubit.dart';
 import 'package:souq/features/auth/presentation/views/signup/widgets/sign_up_view.dart';
 import 'package:souq/generated/l10n.dart';
-import 'package:souq/main.dart';
 
-class LoginViewBody extends StatefulWidget {
-  const LoginViewBody({
+class SginInViewBody extends StatefulWidget {
+  const SginInViewBody({
     super.key,
   });
 
   @override
-  State<LoginViewBody> createState() => _LoginViewBodyState();
+  State<SginInViewBody> createState() => _SginInViewBodyState();
 }
 
-class _LoginViewBodyState extends State<LoginViewBody> {
+class _SginInViewBodyState extends State<SginInViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
   bool isPass = false;
-  bool switcher = false;
-  Locale? locale;
-  SouqApp? _SouqAppState;
-
-
-  setLocale(Locale locale) {
-    setState(() {
-      locale = locale;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
+      autovalidateMode: autovalidateMode,
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 16.0),
           child: Column(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('Select Language:'),
-          DropdownButton(
-            hint: Text('s'),
-
-            value: _SouqAppState,
-            onChanged: (value) {
-              if (value == 'en') {
-                SouqApp.setLocale(context, const Locale('en'));
-              } else if (value == 'ar') {
-                SouqApp.setLocale(context, const Locale('ar'));
-              }
-            },
-            items: [
-              DropdownMenuItem(
-                child: Text('English'),
-                value: 'en',
-              ),
-              DropdownMenuItem(
-                child: Text('Arabic'),
-                value: 'ar',
-              ),
-            ],
-          ),
-                ],
-              ),
               CustomTextFormField(
                 suffixIcon: Icon(
                   Icons.email_outlined,
@@ -126,20 +90,26 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CustomTextButton(
-                    padding: kHorizintalPadding,
-                    onPressed: () {},
+                    horizontalPadding: kHorizontalPadding,
+                    onTap: () {},
                     text: S.of(context).forgetPass,
                   ),
                 ],
               ),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               CustomButton(
                 onPressed: () {
+                  Prefs.setBool(kIsLogin, true);
+
                   if (formKey.currentState!.validate()) {
-                    passwordController.text;
-                    emailController.text;
+                    formKey.currentState!.save();
+                    SignInCubit.get(context).signInWithEmailAndPassword(
+                        emailController.text, passwordController.text);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
                   }
                 },
                 text: S.of(context).loginButton,
@@ -151,7 +121,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     S.of(context).createAccountQuestion,
                   ),
                   CustomTextButton(
-                    onPressed: () {
+                    onTap: () {
                       Navigator.pushNamed(context, SignUpView.routeName);
                     },
                     text: S.of(context).createAccount,
@@ -170,8 +140,24 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 icon: 'assets/Google.svg',
                 textColor: Colors.black,
                 color: Color(0xffFFFFFF),
-                onPressed: () {},
+                onPressed: () {
+                  SignInCubit.get(context).signInWithGoogle();
+                },
                 text: S.of(context).googleButton,
+              ),
+              SizedBox(
+                height: 12,
+              ),
+              CustomButton(
+                borderSideWidth: 1,
+                borderSideColor: 0xffDDDFDF,
+                icon: 'assets/FaceBook.svg',
+                textColor: Colors.black,
+                color: Color(0xffFFFFFF),
+                onPressed: () {
+                  SignInCubit.get(context).signInWithFacebook();
+                },
+                text: S.of(context).facebookButton,
               ),
               SizedBox(
                 height: 12,
@@ -186,27 +172,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 text: S.of(context).appleButton,
               ),
               SizedBox(
-                height: 12,
-              ),
-              CustomButton(
-                borderSideWidth: 1,
-                borderSideColor: 0xffDDDFDF,
-                icon: 'assets/FaceBook.svg',
-                textColor: Colors.black,
-                color: Color(0xffFFFFFF),
-                onPressed: () {},
-                text: S.of(context).facebookButton,
+                height: 30,
               ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  void switchLanguage(Locale locale) {
-    setState(() {
-      locale = locale;
-    });
   }
 }

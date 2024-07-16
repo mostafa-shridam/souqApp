@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:souq/constants/constants.dart';
+import 'package:souq/core/services/shared_preferences.dart';
+import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/features/on_boarding/views/on_boarding_view.dart';
+import 'package:souq/views/nav_views/home_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -25,9 +29,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       children: [
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: Locale != 'en' ? MainAxisAlignment.start : MainAxisAlignment.end,
           children: [
-            SvgPicture.asset("assets/Plant.svg"),
+            SvgPicture.asset(
+              "assets/Plant.svg",
+              matchTextDirection: true,
+            ),
           ],
         ),
         Padding(
@@ -43,16 +49,26 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       ],
     );
   }
+
   void excuteNavigation() {
+    bool isOnboardingSeen = Prefs.getBool(
+      kIsOnBoardingSeen,
+    );
+    bool isLogin = Prefs.getBool(
+      kIsLogin,
+    );
     Future.delayed(
         Duration(
           seconds: 3,
-        ),
-            () {
-          Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
-        }
-    );
+        ), () {
+      if (isOnboardingSeen) {
+        Navigator.pushReplacementNamed(context, SginInView.routeName);
+      }
+      if (isLogin) {
+        Navigator.pushReplacementNamed(context, NavView.routeName);
+      } else {
+        Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      }
+    });
   }
 }
-
-

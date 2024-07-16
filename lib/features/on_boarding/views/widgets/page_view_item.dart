@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:souq/constants/constants.dart';
+import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
-import 'package:souq/features/auth/presentation/views/login/login_view.dart';
+import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/generated/l10n.dart';
 
 class PageViewItem extends StatelessWidget {
@@ -45,9 +46,10 @@ class PageViewItem extends StatelessWidget {
                   child: TextButton(
                     onLongPress: () {},
                     onPressed: () {
+                      Prefs.setBool(kIsOnBoardingSeen, true);
                       Navigator.pushReplacementNamed(
                         context,
-                        LoginView.routeName,
+                        SginInView.routeName,
                       );
                     },
                     child: Text(
@@ -79,7 +81,7 @@ class PageViewItem extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: kHorizintalPadding,
+            horizontal: kHorizontalPadding,
           ),
           child: Text(
             subtitle,

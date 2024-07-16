@@ -22,10 +22,30 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "AccountAlreadyExists": MessageLookupByLibrary.simpleMessage(
+            "الحساب موجود بالفعل لهذا البريد الإلكتروني"),
+        "AnErroeOccured": MessageLookupByLibrary.simpleMessage(
+            "حدث خطأ، يرجى المحاولة لاحقا"),
+        "CkeckInterNet":
+            MessageLookupByLibrary.simpleMessage("تأكد من الاتصال بالانترنت"),
+        "DisAgreeTerms": MessageLookupByLibrary.simpleMessage(
+            "يجب عليك الموافقة علي الشروط والاحكام"),
+        "NavBarAccount": MessageLookupByLibrary.simpleMessage("حسابي"),
+        "NavBarCart": MessageLookupByLibrary.simpleMessage("العربة"),
+        "NavBarHome": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "NavBarProducts": MessageLookupByLibrary.simpleMessage("المنتجات"),
+        "PasswordWeak": MessageLookupByLibrary.simpleMessage(
+            "كلمة المرور التي ادخلتها ضعيفة جدا"),
+        "UserNotFound": MessageLookupByLibrary.simpleMessage(
+            "البريد الالكتروني او كلمة السر غير صحيحه"),
+        "agreeConditions": MessageLookupByLibrary.simpleMessage(
+            "من خلال إنشاء حساب ، فإنك توافق على"),
         "appBarLogin": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
         "appBarSignUp": MessageLookupByLibrary.simpleMessage("حساب جديد"),
         "appBarTitle": MessageLookupByLibrary.simpleMessage("سوق"),
         "appleButton": MessageLookupByLibrary.simpleMessage("تسجيل بواسطة أبل"),
+        "conditions":
+            MessageLookupByLibrary.simpleMessage("الشروط والأحكام الخاصة بنا"),
         "createAccount": MessageLookupByLibrary.simpleMessage("قم بإنشاء حساب"),
         "createAccountQuestion":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
@@ -37,10 +57,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور؟"),
         "googleButton":
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة جوجل"),
+        "haveAccount": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
+        "haveAccountQuestion":
+            MessageLookupByLibrary.simpleMessage("تمتلك حساب بالفعل؟"),
         "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "loginDivider": MessageLookupByLibrary.simpleMessage("أو"),
         "nameHintText": MessageLookupByLibrary.simpleMessage("الاسم كامل"),
         "passHintText": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "signUpButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
         "skipButton": MessageLookupByLibrary.simpleMessage("تخطي"),
         "startButton": MessageLookupByLibrary.simpleMessage("ابدأ الان"),
         "subtitle1": MessageLookupByLibrary.simpleMessage(

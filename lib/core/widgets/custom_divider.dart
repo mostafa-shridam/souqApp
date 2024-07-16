@@ -14,7 +14,7 @@ class CustomDivider extends StatelessWidget {
       children: [
         Expanded(
           child: Divider(
-            indent: kHorizintalPadding,
+            indent: kHorizontalPadding,
             endIndent: 8,
             color: AppColors.primaryColor,
           ),
@@ -28,7 +28,7 @@ class CustomDivider extends StatelessWidget {
         Expanded(
           child: Divider(
             indent: 8,
-            endIndent: kHorizintalPadding,
+            endIndent: kHorizontalPadding,
             color: AppColors.primaryColor,
           ),
         ),

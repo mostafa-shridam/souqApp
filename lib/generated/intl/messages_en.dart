@@ -22,11 +22,31 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "AccountAlreadyExists": MessageLookupByLibrary.simpleMessage(
+            "The account already exists for that email."),
+        "AnErroeOccured": MessageLookupByLibrary.simpleMessage(
+            "An error occured, please try later"),
+        "CkeckInterNet": MessageLookupByLibrary.simpleMessage(
+            "Make sure you are connected to the Internet"),
+        "DisAgreeTerms": MessageLookupByLibrary.simpleMessage(
+            "You must agree to the terms and conditions"),
+        "NavBarAccount": MessageLookupByLibrary.simpleMessage("Account"),
+        "NavBarCart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "NavBarHome": MessageLookupByLibrary.simpleMessage("Home"),
+        "NavBarProducts": MessageLookupByLibrary.simpleMessage("Products"),
+        "PasswordWeak": MessageLookupByLibrary.simpleMessage(
+            "The password you entered is very weak"),
+        "UserNotFound": MessageLookupByLibrary.simpleMessage(
+            "The email or password is incorrect"),
+        "agreeConditions": MessageLookupByLibrary.simpleMessage(
+            "By creating an account, you agree to"),
         "appBarLogin": MessageLookupByLibrary.simpleMessage("Login"),
         "appBarSignUp": MessageLookupByLibrary.simpleMessage("New Account"),
         "appBarTitle": MessageLookupByLibrary.simpleMessage("Souq"),
         "appleButton":
             MessageLookupByLibrary.simpleMessage("Continue with apple"),
+        "conditions":
+            MessageLookupByLibrary.simpleMessage("Our Terms and Conditions"),
         "createAccount": MessageLookupByLibrary.simpleMessage("Create one"),
         "createAccountQuestion":
             MessageLookupByLibrary.simpleMessage("Dont\'t have account?"),
@@ -36,10 +56,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgetPass": MessageLookupByLibrary.simpleMessage("Forget password?"),
         "googleButton":
             MessageLookupByLibrary.simpleMessage("Continue with google"),
+        "haveAccount": MessageLookupByLibrary.simpleMessage("Login"),
+        "haveAccountQuestion": MessageLookupByLibrary.simpleMessage(
+            "You already have an account?"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Login"),
         "loginDivider": MessageLookupByLibrary.simpleMessage("Or"),
         "nameHintText": MessageLookupByLibrary.simpleMessage("Full name"),
         "passHintText": MessageLookupByLibrary.simpleMessage("Password"),
+        "signUpButton":
+            MessageLookupByLibrary.simpleMessage("Create new account"),
         "skipButton": MessageLookupByLibrary.simpleMessage("Skip"),
         "startButton": MessageLookupByLibrary.simpleMessage("Start now"),
         "subtitle1": MessageLookupByLibrary.simpleMessage(

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:souq/constants/constants.dart';
-import 'package:souq/core/utlis/app_colors.dart';
-import 'package:souq/core/utlis/app_text_styles.dart';
 import 'package:souq/core/widgets/custom_button.dart';
+import 'package:souq/core/widgets/custom_show_snack_bar.dart';
+import 'package:souq/core/widgets/custom_terms.dart';
 import 'package:souq/core/widgets/custom_text_button.dart';
 import 'package:souq/core/widgets/custom_text_form_filed.dart';
-import 'package:souq/features/auth/presentation/views/login/login_view.dart';
+import 'package:souq/features/auth/presentation/views/cubits/signup_cubit/signup_cubit.dart';
+import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/generated/l10n.dart';
 
 class SignUpViewBody extends StatefulWidget {
@@ -23,19 +23,17 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
   bool isPass = false;
-  bool agreeToTerms = false;
+  late bool isTermsAccepted = false;
 
-  void initState() {
-    super.initState();
-  }
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
+      autovalidateMode: autoValidateMode,
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 24.0),
@@ -57,7 +55,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 },
                 controller: nameController,
                 hintText: S.of(context).nameHintText,
-                textInputType: TextInputType.emailAddress,
+                textInputType: TextInputType.name,
               ),
               CustomTextFormField(
                 suffixIcon: Icon(
@@ -108,42 +106,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 hintText: S.of(context).passHintText,
                 textInputType: TextInputType.text,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: kHorizintalPadding - 10,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Checkbox(
-                      isError: agreeToTerms == false ? false : true,
-                      splashRadius: 10,
-                      tristate: agreeToTerms == true ? false : true,
-                      side: BorderSide(style: BorderStyle.solid),
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      activeColor: AppColors.primaryColor,
-                      value: agreeToTerms,
-                      onChanged: (value) {
-                        setState(() {
-                          agreeToTerms = value!;
-                        });
-                      },
-                    ),
-                    Text(
-                      S.of(context).agreeConditions,
-                      style: TextStyles.regular13,
-                    ),
-                    CustomTextButton(
-                      horizontalPadding: 4,
-                      onTap: () {
-                        // Open Terms and Conditions page or dialog
-                        showTermsAndConditionsDialog(context);
-                      },
-                      text: S.of(context).conditions,
-                    ),
-                  ],
-                ),
+              CustomTerms(
+                onChanged: (bool value) {
+                  isTermsAccepted = value;
+                },
               ),
               SizedBox(
                 height: 30,
@@ -151,9 +117,24 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               CustomButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
-                    passwordController.text;
-                    emailController.text;
-                    nameController.text;
+                    formKey.currentState!.save();
+                    if (isTermsAccepted) {
+                      SignupCubit.get(context).createUserWithEmailAndPassword(
+                        emailController.text,
+                        nameController.text,
+                        passwordController.text,
+                      );
+                    } else {
+                      customShowSnackBar(
+                        context,
+                        message: S.of(context).DisAgreeTerms,
+                        color: Colors.red.shade200,
+                      );
+                    }
+                  } else {
+                    setState(() {
+                      autoValidateMode = AutovalidateMode.always;
+                    });
                   }
                 },
                 text: S.of(context).signUpButton,
@@ -167,7 +148,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   CustomTextButton(
                     onTap: () {
                       Navigator.pushReplacementNamed(
-                          context, LoginView.routeName);
+                          context, SginInView.routeName);
                     },
                     text: S.of(context).haveAccount,
                   ),
@@ -188,7 +169,7 @@ void showTermsAndConditionsDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) {
-      return AlertDialog(
+      return CupertinoAlertDialog(
         title: Text('AppLocalizations.of(context)!.termsAndConditions'),
         content: Text('AppLocalizations.of(context)!.termsAndConditionsText'),
         actions: [

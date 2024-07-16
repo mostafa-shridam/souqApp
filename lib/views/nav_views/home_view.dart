@@ -1,123 +1,98 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:souq/core/utlis/app_colors.dart';
-import 'package:souq/core/utlis/app_text_styles.dart';
 import 'package:souq/core/widgets/custom_app_bar.dart';
-import 'package:souq/features/on_boarding/views/on_boarding_view.dart';
+import 'package:souq/core/widgets/custom_bottom_nav_bar.dart';
 import 'package:souq/generated/l10n.dart';
 import 'package:souq/views/cart_view/cart_view.dart';
+import 'package:souq/views/home_view/home_view.dart';
+import 'package:souq/views/products_view/products_view.dart';
 import 'package:souq/views/settings_view/account_View.dart';
 
-class HomeView extends StatefulWidget {
+class NavView extends StatefulWidget {
   static const String routeName = 'homeView';
 
-  const HomeView({super.key});
+  const NavView({
+    super.key,
+  });
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<NavView> createState() => _NavViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
-  int index = 0;
+class _NavViewState extends State<NavView> {
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    List<String> title = [
+      S.of(context).NavBarHome,
+      S.of(context).NavBarProducts,
+      S.of(context).NavBarCart,
+      S.of(context).NavBarAccount,
+    ];
     return Scaffold(
-      appBar: buildAppBar(context, title: title[index],centerTitle: true,),
-      body: screens[index],
-      bottomNavigationBar: BottomNavigationBar(
-        useLegacyColorScheme: false,
-        enableFeedback: true,
-        showSelectedLabels: true,
-        showUnselectedLabels: false,
-        unselectedIconTheme: IconThemeData(
-          color: AppColors.primaryColor,
+      extendBody: true,
+      appBar: buildAppBar(
+        context,
+        title: title[currentIndex],
+        centerTitle: true,
+      ),
+      body: screens.elementAt(currentIndex),
+      bottomNavigationBar: Container(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 7,
+              offset: Offset(0, 3),
+            )
+          ],
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(24),
+            topLeft: Radius.circular(24),
+          ),
         ),
-        onTap: (value) {
-          index = value;
-          setState(() {
-
-          });
-        },
-        currentIndex: index,
-        backgroundColor: Colors.white,
-        elevation: 24.0,
-        type: BottomNavigationBarType.fixed,
-        selectedLabelStyle: TextStyles.semiBold11.copyWith(
-          color: AppColors.primaryColor,
+        child: BottomAppBar(
+          surfaceTintColor: Colors.white,
+          shadowColor: Colors.black,
+          elevation: 66,
+          height: 80,
+          color: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(
+              bottomNavIcons.length,
+              (index) => currentIndex == index
+                  ? buildSelectedButton(index, title, currentIndex)
+                  : buildUnSelectedButton(index),
+            ),
+          ),
         ),
-        items: [
-          BottomNavigationBarItem(
-            icon: index == 0
-                ? CircleAvatar(
-              backgroundColor: AppColors.primaryColor,
-              child: Icon(
-                CupertinoIcons.house_fill,
-                color: Colors.white,
-              ),
-            )
-                : Icon(
-              CupertinoIcons.house_fill,
-            ),
-            label: S.of(context).NavBarHome,
-          ),
-          BottomNavigationBarItem(
-            icon: index == 1
-                ? CircleAvatar(
-              backgroundColor: AppColors.primaryColor,
-              child: Icon(
-                CupertinoIcons.rectangle_grid_2x2,
-                color: Colors.white,
-              ),
-            )
-                : Icon(
-              CupertinoIcons.rectangle_grid_2x2,
-            ),
-            label: S.of(context).NavBarProducts,
-          ),
-          BottomNavigationBarItem(
-            icon: index == 2
-                ? CircleAvatar(
-              backgroundColor: AppColors.primaryColor,
-              child: Icon(
-                CupertinoIcons.cart_fill,
-                color: Colors.white,
-              ),
-            )
-                : Icon(
-              CupertinoIcons.cart_fill,
-            ),
-            label: S.of(context).NavBarCart,
-          ),
-          BottomNavigationBarItem(
-            icon: index == 3
-                ? CircleAvatar(
-              backgroundColor: AppColors.primaryColor,
-              child: Icon(
-                CupertinoIcons.person_alt,
-                color: Colors.white,
-              ),
-            )
-                : Icon(
-              CupertinoIcons.person_alt,
-            ),
-            label: S.of(context).NavBarAccount,
-          ),
-        ],
       ),
     );
   }
+
+  IconButton buildUnSelectedButton(int index) {
+    return IconButton(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        onPressed: () {
+          currentIndex = index;
+          setState(() {});
+        },
+        icon: Icon(
+          bottomNavIcons[index],
+          color: AppColors.primaryColor,
+        ));
+  }
 }
 
-
 List<Widget> screens = [
-  AccountView(),
-  CartView(),
+  HomeView(),
   ProductsView(),
+  CartView(),
+  AccountView(),
 ];
-List<String> title = [
-  "Home",
-  "Products",
-  "Cart",
-  "Account",
-];
+
+

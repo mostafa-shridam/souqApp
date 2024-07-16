@@ -299,6 +299,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Create new account`
+  String get signUpButton {
+    return Intl.message(
+      'Create new account',
+      name: 'signUpButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You already have an account?`
+  String get haveAccountQuestion {
+    return Intl.message(
+      'You already have an account?',
+      name: 'haveAccountQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get haveAccount {
+    return Intl.message(
+      'Login',
+      name: 'haveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By creating an account, you agree to`
+  String get agreeConditions {
+    return Intl.message(
+      'By creating an account, you agree to',
+      name: 'agreeConditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Our Terms and Conditions`
+  String get conditions {
+    return Intl.message(
+      'Our Terms and Conditions',
+      name: 'conditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get NavBarHome {
+    return Intl.message(
+      'Home',
+      name: 'NavBarHome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Products`
+  String get NavBarProducts {
+    return Intl.message(
+      'Products',
+      name: 'NavBarProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cart`
+  String get NavBarCart {
+    return Intl.message(
+      'Cart',
+      name: 'NavBarCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get NavBarAccount {
+    return Intl.message(
+      'Account',
+      name: 'NavBarAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must agree to the terms and conditions`
+  String get DisAgreeTerms {
+    return Intl.message(
+      'You must agree to the terms and conditions',
+      name: 'DisAgreeTerms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occured, please try later`
+  String get AnErroeOccured {
+    return Intl.message(
+      'An error occured, please try later',
+      name: 'AnErroeOccured',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password you entered is very weak`
+  String get PasswordWeak {
+    return Intl.message(
+      'The password you entered is very weak',
+      name: 'PasswordWeak',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The account already exists for that email.`
+  String get AccountAlreadyExists {
+    return Intl.message(
+      'The account already exists for that email.',
+      name: 'AccountAlreadyExists',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make sure you are connected to the Internet`
+  String get CkeckInterNet {
+    return Intl.message(
+      'Make sure you are connected to the Internet',
+      name: 'CkeckInterNet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The email or password is incorrect`
+  String get UserNotFound {
+    return Intl.message(
+      'The email or password is incorrect',
+      name: 'UserNotFound',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -23,5 +23,20 @@
   "googleButton": "Continue with google",
   "appleButton": "Continue with apple",
   "facebookButton": "Continue with facebook",
-  "loginDivider": "Or"
+  "loginDivider": "Or",
+  "signUpButton" : "Create new account",
+  "haveAccountQuestion" : "You already have an account?",
+  "haveAccount" : "Login",
+  "agreeConditions": "By creating an account, you agree to",
+  "conditions": "Our Terms and Conditions",
+  "NavBarHome": "Home",
+  "NavBarProducts": "Products",
+  "NavBarCart": "Cart",
+  "NavBarAccount": "Account",
+  "DisAgreeTerms" : "You must agree to the terms and conditions",
+  "AnErroeOccured" : "An error occured, please try later",
+  "PasswordWeak" : "The password you entered is very weak",
+  "AccountAlreadyExists" : "The account already exists for that email.",
+  "CkeckInterNet" : "Make sure you are connected to the Internet",
+  "UserNotFound" : "The email or password is incorrect"
 }
