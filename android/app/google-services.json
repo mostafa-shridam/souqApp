@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "38517736356",
+    "project_id": "souq-9ab11",
+    "storage_bucket": "souq-9ab11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38517736356:android:d00a91ab221871ea05b731",
+        "android_client_info": {
+          "package_name": "com.example.souq"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsxJXiNFQB4QP_jwM8Nhzj4OJdNajJI18"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
