@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:souq/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/widgets/custom_button.dart';
 import 'package:souq/core/widgets/custom_divider.dart';
+import 'package:souq/core/widgets/custom_show_snack_bar.dart';
+import 'package:souq/core/widgets/custom_social_button.dart';
 import 'package:souq/core/widgets/custom_text_button.dart';
 import 'package:souq/core/widgets/custom_text_form_filed.dart';
 import 'package:souq/features/auth/presentation/views/cubits/signin_cubit/signin_cubit.dart';
@@ -134,43 +138,40 @@ class _SginInViewBodyState extends State<SginInViewBody> {
               SizedBox(
                 height: 30,
               ),
-              CustomButton(
-                borderSideWidth: 1,
-                borderSideColor: 0xffDDDFDF,
-                icon: 'assets/Google.svg',
-                textColor: Colors.black,
-                color: Color(0xffFFFFFF),
+              SocialLoginButton(
+                image: 'assets/Google.svg',
+                title: S.of(context).googleButton,
                 onPressed: () {
                   SignInCubit.get(context).signInWithGoogle();
                 },
-                text: S.of(context).googleButton,
               ),
               SizedBox(
                 height: 12,
               ),
-              CustomButton(
-                borderSideWidth: 1,
-                borderSideColor: 0xffDDDFDF,
-                icon: 'assets/FaceBook.svg',
-                textColor: Colors.black,
-                color: Color(0xffFFFFFF),
+              SocialLoginButton(
+                image: 'assets/FaceBook.svg',
+                title: S.of(context).facebookButton,
                 onPressed: () {
                   SignInCubit.get(context).signInWithFacebook();
                 },
-                text: S.of(context).facebookButton,
               ),
-              SizedBox(
-                height: 12,
-              ),
-              CustomButton(
-                borderSideWidth: 1,
-                borderSideColor: 0xffDDDFDF,
-                icon: 'assets/Apple.svg',
-                textColor: Colors.black,
-                color: Color(0xffFFFFFF),
-                onPressed: () {},
-                text: S.of(context).appleButton,
-              ),
+              Platform.isIOS
+                  ? Column(
+                      children: [
+                        SizedBox(
+                          height: 12,
+                        ),
+                        SocialLoginButton(
+                          image: 'assets/Apple.svg',
+                          title: S.of(context).appleButton,
+                          onPressed: () {
+                            customShowSnackBar(context,
+                                message: 'Comming soon!');
+                          },
+                        ),
+                      ],
+                    )
+                  : const SizedBox(),
               SizedBox(
                 height: 30,
               ),
