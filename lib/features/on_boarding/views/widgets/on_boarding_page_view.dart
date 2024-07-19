@@ -16,8 +16,9 @@ class OnBoardingPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: PageView(
+        allowImplicitScrolling: true,
+        scrollDirection: Axis.horizontal,
         controller: pageController,
-        onPageChanged: (value) {},
         children: [
           PageViewItem(
             image: "assets/Image1.svg",

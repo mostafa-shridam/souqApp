@@ -22,21 +22,30 @@ class SginInView extends StatefulWidget {
 
 class _SginInViewState extends State<SginInView> {
   SouqApp? SouqAppState;
-
+  late SignInState state;
   @override
+  void initState() {
+    super.initState();
+    state = SignInLoading();
+    setState(() {});
+  }
+
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SignInCubit(getIt<AuthRepo>()),
-      child: Scaffold(
-        appBar: buildAppBar(
-          context,
-          title: S.of(context).appBarLogin,
-          centerTitle: true,
-          actions: [
-            CustomDropDown(SouqAppState: SouqAppState),
-          ],
+      child: AbsorbPointer(
+        absorbing: state is! SignInLoading,
+        child: Scaffold(
+          appBar: buildAppBar(
+            context,
+            title: S.of(context).appBarLogin,
+            centerTitle: true,
+            actions: [
+              CustomDropDown(SouqAppState: SouqAppState),
+            ],
+          ),
+          body: SginInViewBodyBlocConsumer(),
         ),
-        body: SginInViewBodyBlocConsumer(),
       ),
     );
   }

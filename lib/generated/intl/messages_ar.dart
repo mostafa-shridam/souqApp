@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "NavBarProducts": MessageLookupByLibrary.simpleMessage("المنتجات"),
         "PasswordWeak": MessageLookupByLibrary.simpleMessage(
             "كلمة المرور التي ادخلتها ضعيفة جدا"),
+        "SelectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
         "UserNotFound": MessageLookupByLibrary.simpleMessage(
             "البريد الالكتروني او كلمة السر غير صحيحه"),
         "agreeConditions": MessageLookupByLibrary.simpleMessage(

@@ -1,3 +1,5 @@
+
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:souq/features/auth/data/domain/entites/user_intity.dart';
@@ -8,7 +10,6 @@ part 'signin_state.dart';
 class SignInCubit extends Cubit<SignInState> {
   SignInCubit(this.authRepo) : super(SignInInitial());
     static SignInCubit get(context) => BlocProvider.of(context);
-
   final AuthRepo authRepo;
   Future<void> signInWithEmailAndPassword(String email, String password)async {
     emit(SignInLoading());

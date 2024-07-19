@@ -38,5 +38,7 @@
   "PasswordWeak" : "The password you entered is very weak",
   "AccountAlreadyExists" : "The account already exists for that email.",
   "CkeckInterNet" : "Make sure you are connected to the Internet",
-  "UserNotFound" : "The email or password is incorrect"
+  "UserNotFound" : "The email or password is incorrect",
+  "SelectLanguage":"Select Language"
+
 }

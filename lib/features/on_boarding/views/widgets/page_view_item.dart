@@ -24,74 +24,76 @@ class PageViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        SizedBox(
-          height: height * 0.5,
-          width: double.infinity,
-          child: Stack(
-            children: [
-              Positioned.fill(
-                child: SvgPicture.asset(
-                  backgroundImage,
-                  fit: BoxFit.fill,
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SizedBox(
+            height: height * 0.5,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: SvgPicture.asset(
+                    backgroundImage,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              Visibility(
-                visible: visibility,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 28.0),
-                  child: TextButton(
-                    onLongPress: () {},
-                    onPressed: () {
-                      Prefs.setBool(kIsOnBoardingSeen, true);
-                      Navigator.pushReplacementNamed(
-                        context,
-                        SginInView.routeName,
-                      );
-                    },
-                    child: Text(
-                      S.of(context).skipButton,
-                      style: TextStyles.regular13.copyWith(
-                        color: Color(
-                          0xff949D9E,
+                Visibility(
+                  visible: visibility,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 28.0),
+                    child: TextButton(
+                      onLongPress: () {},
+                      onPressed: () {
+                        Prefs.setBool(kIsOnBoardingSeen, true);
+                        Navigator.pushReplacementNamed(
+                          context,
+                          SginInView.routeName,
+                        );
+                      },
+                      child: Text(
+                        S.of(context).skipButton,
+                        style: TextStyles.regular13.copyWith(
+                          color: Color(
+                            0xff949D9E,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: SvgPicture.asset(
-                  image,
-                  fit: BoxFit.contain,
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: SvgPicture.asset(
+                    image,
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 28.0),
-          child: title,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: kHorizontalPadding,
-          ),
-          child: Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: TextStyles.semiBold13.copyWith(
-              color: Color(0xff4E5556),
+              ],
             ),
           ),
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 28.0),
+            child: title,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: kHorizontalPadding,
+            ),
+            child: Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: TextStyles.semiBold13.copyWith(
+                color: Color(0xff4E5556),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

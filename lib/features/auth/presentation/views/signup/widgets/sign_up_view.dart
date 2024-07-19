@@ -10,11 +10,16 @@ import 'package:souq/features/auth/presentation/views/signup/widgets/sgin_up_vie
 import 'package:souq/generated/l10n.dart';
 import 'package:souq/views/nav_views/home_view.dart';
 
-class SignUpView extends StatelessWidget {
+class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
 
   static const String routeName = 'SignUp';
 
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -43,16 +48,19 @@ class SignUpView extends StatelessWidget {
           return ModalProgressHUD(
             inAsyncCall: state is SignupLoading ? true : false,
             dismissible: true,
-            child: Scaffold(
-              appBar: buildAppBar(
-                onTap: () {
-                  return Navigator.pop(context);
-                },
-                context,
-                title: S.of(context).appBarSignUp,
-                centerTitle: true,
+            child: AbsorbPointer(
+              absorbing: state is SignupLoading ? true : false,
+              child: Scaffold(
+                appBar: buildAppBar(
+                  onTap: () {
+                    return Navigator.pop(context);
+                  },
+                  context,
+                  title: S.of(context).appBarSignUp,
+                  centerTitle: true,
+                ),
+                body: SignUpViewBody(),
               ),
-              body: SignUpViewBody(),
             ),
           );
         },
