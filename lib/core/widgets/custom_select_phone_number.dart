@@ -45,7 +45,7 @@ class _CustomSelectPhoneState extends State<CustomSelectPhone> {
             ),
             Expanded(
               child: CustomTextFormField(
-                validator: ( f) {
+                validator: (value) {
                   if (value!.isEmpty) {
                     return 'Please enter your phone number';
                   }
