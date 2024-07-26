@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:souq/constants/constants.dart';
+import 'package:souq/core/utlis/constants/app_images.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/widgets/custom_button.dart';
 import 'package:souq/core/widgets/custom_divider.dart';
@@ -12,6 +13,7 @@ import 'package:souq/core/widgets/custom_text_button.dart';
 import 'package:souq/core/widgets/custom_text_form_filed.dart';
 import 'package:souq/features/auth/presentation/views/cubits/signin_cubit/signin_cubit.dart';
 import 'package:souq/features/auth/presentation/views/signup/widgets/sign_up_view.dart';
+import 'package:souq/features/forget_password/forget_password_view.dart';
 import 'package:souq/generated/l10n.dart';
 
 class SginInViewBody extends StatefulWidget {
@@ -95,7 +97,10 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                 children: [
                   CustomTextButton(
                     horizontalPadding: kHorizontalPadding,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, ForgetPasswordView.routeName);
+                    },
                     text: S.of(context).forgetPass,
                   ),
                 ],
@@ -106,7 +111,6 @@ class _SginInViewBodyState extends State<SginInViewBody> {
               CustomButton(
                 onPressed: () {
                   Prefs.setBool(kIsLogin, true);
-
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     SignInCubit.get(context).signInWithEmailAndPassword(
@@ -139,9 +143,10 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                 height: 30,
               ),
               SocialLoginButton(
-                image: 'assets/Google.svg',
+                image: Assets.imagesGoogle,
                 title: S.of(context).googleButton,
                 onPressed: () {
+                  Prefs.setBool(kIsLogin, true);
                   SignInCubit.get(context).signInWithGoogle();
                 },
               ),
@@ -149,9 +154,10 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                 height: 12,
               ),
               SocialLoginButton(
-                image: 'assets/FaceBook.svg',
+                image: Assets.imagesFaceBook,
                 title: S.of(context).facebookButton,
                 onPressed: () {
+                  Prefs.setBool(kIsLogin, true);
                   SignInCubit.get(context).signInWithFacebook();
                 },
               ),
@@ -162,9 +168,10 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                           height: 12,
                         ),
                         SocialLoginButton(
-                          image: 'assets/Apple.svg',
+                          image: Assets.imagesApple,
                           title: S.of(context).appleButton,
                           onPressed: () {
+                            Prefs.setBool(kIsLogin, true);
                             customShowSnackBar(context,
                                 message: 'Comming soon!');
                           },

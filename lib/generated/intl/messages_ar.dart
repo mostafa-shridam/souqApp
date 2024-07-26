@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تأكد من الاتصال بالانترنت"),
         "DisAgreeTerms": MessageLookupByLibrary.simpleMessage(
             "يجب عليك الموافقة علي الشروط والاحكام"),
+        "ForgetPassTitle":
+            MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "NavBarAccount": MessageLookupByLibrary.simpleMessage("حسابي"),
         "NavBarCart": MessageLookupByLibrary.simpleMessage("العربة"),
         "NavBarHome": MessageLookupByLibrary.simpleMessage("الرئيسية"),

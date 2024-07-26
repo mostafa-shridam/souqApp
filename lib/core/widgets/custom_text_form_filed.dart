@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:souq/constants/constants.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
 
@@ -13,6 +13,7 @@ class CustomTextFormField extends StatelessWidget {
     this.padding,
     this.validator,
     this.obscureText,
+    this.maxLength,
   });
 
   final String hintText;
@@ -20,6 +21,7 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextEditingController controller;
   final double? padding;
+  final int? maxLength;
   final String? Function(String?)? validator;
   final bool? obscureText;
 
@@ -32,6 +34,7 @@ class CustomTextFormField extends StatelessWidget {
         left: kHorizontalPadding,
       ),
       child: TextFormField(
+        maxLength: maxLength,
         enableSuggestions: true,
         textCapitalization: TextCapitalization.words,
         obscureText: obscureText ?? false,
@@ -49,18 +52,18 @@ class CustomTextFormField extends StatelessWidget {
           fillColor: AppColors.fillColor,
           enabledBorder: buildBorder(),
           focusedBorder: buildBorder(),
-      ),
         ),
-    );
-  }
-
-  OutlineInputBorder buildBorder() {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(4),
-      borderSide: const BorderSide(
-        width: 1,
-        color: Color(0xFFE6E9E9),
       ),
     );
   }
+}
+
+OutlineInputBorder buildBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(4),
+    borderSide: const BorderSide(
+      width: 1,
+      color: Color(0xFFE6E9E9),
+    ),
+  );
 }

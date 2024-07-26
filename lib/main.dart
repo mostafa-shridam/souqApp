@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:souq/constants/constants.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/helper_functions/on_generate_helper.dart';
 import 'package:souq/core/services/get_it_services.dart';
 import 'package:souq/core/services/shared/bloc_observer.dart';
@@ -25,7 +25,7 @@ void main() async {
     appleProvider: AppleProvider.appAttest,
     webProvider: ReCaptchaV3Provider(kWebProvider),
   );
- 
+
   Bloc.observer = CustomBlocObserver();
   await FirebaseAppCheck.instance.activate();
   await Prefs.init();

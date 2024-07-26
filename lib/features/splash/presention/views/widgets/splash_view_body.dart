@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:souq/constants/constants.dart';
+import 'package:souq/core/utlis/constants/app_images.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/features/on_boarding/views/on_boarding_view.dart';
-import 'package:souq/features/select_language/select_language.dart';
 import 'package:souq/views/nav_views/home_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -33,7 +33,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SvgPicture.asset(
-                "assets/Plant.svg",
+                Assets.imagesPlant,
                 matchTextDirection: true,
               ),
             ],
@@ -42,10 +42,10 @@ class _SplashViewBodyState extends State<SplashViewBody> {
             padding: const EdgeInsets.symmetric(
               vertical: 99,
             ),
-            child: SvgPicture.asset("assets/Logo.svg"),
+            child: SvgPicture.asset(Assets.imagesLogo),
           ),
           SvgPicture.asset(
-            "assets/Circles.svg",
+           Assets.imagesCircles,
             fit: BoxFit.fill,
           ),
         ],
@@ -60,23 +60,27 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     bool isLogin = Prefs.getBool(
       kIsLogin,
     );
-    bool isSelectLang = Prefs.getBool(
-      kSelectLanguage,
-    );
     Future.delayed(
         Duration(
           seconds: 3,
         ), () {
-      if (isSelectLang) {
-        Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
-      }
       if (isOnboardingSeen) {
-        Navigator.pushReplacementNamed(context, SginInView.routeName);
-      }
-      if (isLogin) {
-        Navigator.pushReplacementNamed(context, NavView.routeName);
+        if (isLogin) {
+          Navigator.pushReplacementNamed(
+            context,
+            NavView.routeName,
+          );
+        } else {
+          Navigator.pushReplacementNamed(
+            context,
+            SginInView.routeName,
+          );
+        }
       } else {
-        Navigator.pushReplacementNamed(context, SelectLangugeView.routeName);
+        Navigator.pushReplacementNamed(
+          context,
+          OnBoardingView.routeName,
+        );
       }
     });
   }

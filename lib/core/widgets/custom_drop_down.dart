@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:souq/constants/constants.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
 import 'package:intl/intl.dart';
-import 'package:souq/features/on_boarding/views/on_boarding_view.dart';
 import 'package:souq/main.dart';
 
 class CustomDropDown extends StatelessWidget {
-  const CustomDropDown({super.key, this.SouqAppState, this.isSelectLang});
+  const CustomDropDown({super.key, this.SouqAppState});
 
   final SouqApp? SouqAppState;
-  final bool? isSelectLang;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -52,13 +50,11 @@ class CustomDropDown extends StatelessWidget {
               if (value == 'en' || value == 'ar') {
                 Prefs.setBool(kSelectLanguage, true);
               }
-              if (isSelectLang == true) {
-                Navigator.pushReplacementNamed(
-                    context, OnBoardingView.routeName);
-              }
+              Prefs.setBool(kSelectLanguage, true);
             },
             items: [
               DropdownMenuItem(
+                onTap: () => Prefs.setBool(kSelectLanguage, true),
                 child: Text(
                   'English',
                   style: TextStyles.regular13,
@@ -66,6 +62,7 @@ class CustomDropDown extends StatelessWidget {
                 value: 'en',
               ),
               DropdownMenuItem(
+                onTap: () => Prefs.setBool(kSelectLanguage, true),
                 child: Text(
                   'العربية',
                   style: TextStyles.regular13,

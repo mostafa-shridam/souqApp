@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Make sure you are connected to the Internet"),
         "DisAgreeTerms": MessageLookupByLibrary.simpleMessage(
             "You must agree to the terms and conditions"),
+        "ForgetPassTitle":
+            MessageLookupByLibrary.simpleMessage("Forget password"),
         "NavBarAccount": MessageLookupByLibrary.simpleMessage("Account"),
         "NavBarCart": MessageLookupByLibrary.simpleMessage("Cart"),
         "NavBarHome": MessageLookupByLibrary.simpleMessage("Home"),

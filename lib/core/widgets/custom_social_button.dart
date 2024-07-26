@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:souq/constants/constants.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
 
 class SocialLoginButton extends StatelessWidget {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
+import 'package:souq/core/utlis/constants/app_images.dart';
 import 'package:souq/features/on_boarding/views/widgets/page_view_item.dart';
 import 'package:souq/generated/l10n.dart';
 
@@ -21,8 +22,8 @@ class OnBoardingPageView extends StatelessWidget {
         controller: pageController,
         children: [
           PageViewItem(
-            image: "assets/Image1.svg",
-            backgroundImage: "assets/BackGroundImage1.svg",
+            image: Assets.imagesImage1,
+            backgroundImage: Assets.imagesBackGroundImage1,
             subtitle: S.of(context).subtitle1,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -44,8 +45,8 @@ class OnBoardingPageView extends StatelessWidget {
             visibility: true,
           ),
           PageViewItem(
-            image: "assets/Image2.svg",
-            backgroundImage: "assets/BackGroundImage2.svg",
+            image: Assets.imagesImage2,
+            backgroundImage: Assets.imagesBackGroundImage2,
             subtitle: S.of(context).subtitle2,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,

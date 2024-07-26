@@ -32,7 +32,7 @@ class _NavViewState extends State<NavView> {
     ];
     return Scaffold(
       extendBody: true,
-      appBar: buildAppBar(
+      appBar: customAppBar(
         context,
         title: title[currentIndex],
         centerTitle: true,
@@ -94,5 +94,3 @@ List<Widget> screens = [
   CartView(),
   AccountView(),
 ];
-
-

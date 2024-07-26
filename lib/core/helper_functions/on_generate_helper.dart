@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/features/auth/presentation/views/signup/widgets/sign_up_view.dart';
+import 'package:souq/features/forget_password/forget_password_view.dart';
 import 'package:souq/features/on_boarding/views/on_boarding_view.dart';
-import 'package:souq/features/select_language/select_language.dart';
 import 'package:souq/features/splash/presention/views/splash_view.dart';
-import 'package:souq/features/splash/presention/views/widgets/splash_view_body.dart';
 import 'package:souq/views/home_view/home_view.dart';
 import 'package:souq/views/item_details_view/item_detials_view.dart';
 import 'package:souq/views/nav_views/home_view.dart';
@@ -17,13 +16,13 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => SplashView(),
       );
-    case SelectLangugeView.routeName:
-      return MaterialPageRoute(
-        builder: (context) => SelectLangugeView(),
-      );
     case OnBoardingView.routeName:
       return MaterialPageRoute(
         builder: (context) => OnBoardingView(),
+      );
+    case ForgetPasswordView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => ForgetPasswordView(),
       );
     case NavView.routeName:
       return MaterialPageRoute(

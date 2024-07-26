@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
 
-AppBar buildAppBar(
+AppBar customAppBar(
   context, {
   required String title,
   bool? centerTitle,
-  void Function()? onTap,
+  void Function()? leading,
   List<Widget>? actions,
   IconData? icon,
 }) {
   return AppBar(
     backgroundColor: Colors.transparent,
     actions: actions,
-    leading: onTap != null
+    leading: leading != null
         ? GestureDetector(
-            onTap:  ()
-            {
+            onTap: () {
               Navigator.pop(context);
             },
             child: Icon(

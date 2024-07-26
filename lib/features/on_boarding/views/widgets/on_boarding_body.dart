@@ -1,7 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:souq/constants/constants.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/widgets/custom_button.dart';

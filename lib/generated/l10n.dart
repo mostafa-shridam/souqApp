@@ -459,6 +459,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Forget password`
+  String get ForgetPassTitle {
+    return Intl.message(
+      'Forget password',
+      name: 'ForgetPassTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -51,8 +51,8 @@ class _SignUpViewState extends State<SignUpView> {
             child: AbsorbPointer(
               absorbing: state is SignupLoading ? true : false,
               child: Scaffold(
-                appBar: buildAppBar(
-                  onTap: () {
+                appBar: customAppBar(
+                  leading: () {
                     return Navigator.pop(context);
                   },
                   context,

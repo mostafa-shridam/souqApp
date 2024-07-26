@@ -36,7 +36,7 @@ class _SginInViewState extends State<SginInView> {
       child: AbsorbPointer(
         absorbing: state is! SignInLoading,
         child: Scaffold(
-          appBar: buildAppBar(
+          appBar: customAppBar(
             context,
             title: S.of(context).appBarLogin,
             centerTitle: true,
