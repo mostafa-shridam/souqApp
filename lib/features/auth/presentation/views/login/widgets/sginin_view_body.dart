@@ -102,7 +102,9 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                     horizontalPadding: kHorizontalPadding,
                     onTap: () {
                       Navigator.pushNamed(
-                          context, ForgetPasswordView.routeName);
+                        context,
+                        ForgetPasswordView.routeName,
+                      );
                     },
                     text: S.of(context).forgetPass,
                   ),
@@ -117,7 +119,9 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     SignInCubit.get(context).signInWithEmailAndPassword(
-                        emailController.text, passwordController.text,);
+                      emailController.text,
+                      passwordController.text,
+                    );
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
