@@ -35,9 +35,11 @@ class PageViewItem extends StatelessWidget {
             child: Stack(
               children: [
                 Positioned.fill(
-                  child: SvgPicture.asset(
-                    backgroundImage,
-                    fit: BoxFit.fill,
+                  child: RepaintBoundary(
+                    child: SvgPicture.asset(
+                      backgroundImage,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
                 Visibility(
@@ -45,7 +47,6 @@ class PageViewItem extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 28.0),
                     child: TextButton(
-                      onLongPress: () {},
                       onPressed: () {
                         Prefs.setBool(kIsOnBoardingSeen, true);
                         Navigator.pushReplacementNamed(
@@ -56,9 +57,7 @@ class PageViewItem extends StatelessWidget {
                       child: Text(
                         S.of(context).skipButton,
                         style: TextStyles.regular13.copyWith(
-                          color: Color(
-                            0xff949D9E,
-                          ),
+                          color: Color(0xFFC7C9CA),
                         ),
                       ),
                     ),
@@ -87,9 +86,7 @@ class PageViewItem extends StatelessWidget {
             child: Text(
               subtitle,
               textAlign: TextAlign.center,
-              style: TextStyles.semiBold13.copyWith(
-                color: Color(0xff4E5556),
-              ),
+              style: TextStyles.semiBold13,
             ),
           ),
         ],

@@ -10,10 +10,13 @@ import 'package:souq/core/helper_functions/on_generate_helper.dart';
 import 'package:souq/core/services/get_it_services.dart';
 import 'package:souq/core/services/shared/bloc_observer.dart';
 import 'package:souq/core/services/shared_preferences.dart';
-import 'package:souq/core/utlis/app_colors.dart';
+import 'package:souq/core/utlis/theme_mode.dart';
+import 'package:souq/features/account/cubit/account_cubit.dart';
+import 'package:souq/features/auth/data/domain/repo/auth_repo.dart';
 import 'package:souq/features/splash/presention/views/splash_view.dart';
 import 'package:souq/firebase_options.dart';
 import 'package:souq/generated/l10n.dart';
+import 'package:souq/views/nav_views/cubit/nav_bar_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,99 +29,70 @@ void main() async {
     webProvider: ReCaptchaV3Provider(kWebProvider),
   );
 
-  Bloc.observer = CustomBlocObserver();
+  Bloc.observer = await CustomBlocObserver();
   await FirebaseAppCheck.instance.activate();
   await Prefs.init();
   setupGetIt();
   Intl.getCurrentLocale();
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness:
+          Prefs.getBool(kIsDarkMode) ? Brightness.light : Brightness.dark,
+    ),
+  );
   runApp(const SouqApp());
 }
 
-class SouqApp extends StatefulWidget {
+class SouqApp extends StatelessWidget {
   const SouqApp({super.key});
 
   @override
-  State<SouqApp> createState() => _SouqAppState();
-
-  static void setLocale(BuildContext context, Locale newLocale) {
-    _SouqAppState? state = context.findAncestorStateOfType<_SouqAppState>();
-    state?.setLocale(newLocale);
-  }
-}
-
-class _SouqAppState extends State<SouqApp> {
-  Locale? _locale;
-
-  setLocale(Locale locale) {
-    setState(() {
-      _locale = locale;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      themeMode: ThemeMode.light,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primaryColor,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => HomeCubit(getIt<AuthRepo>()),
         ),
-        fontFamily: 'Cairo',
-        useMaterial3: true,
-        scaffoldBackgroundColor: Colors.white,
-        brightness: Brightness.light,
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent,
-            statusBarIconBrightness: Brightness.dark,
-          ),
+        BlocProvider(
+          create: (context) => AccountCubit(),
         ),
-        textButtonTheme: const TextButtonThemeData(
-          style: ButtonStyle(
-            textStyle: WidgetStatePropertyAll(
-              TextStyle(),
-            ),
-          ),
-        ),
-      ),
-      darkTheme: ThemeData(
-        fontFamily: 'Cairo',
-        useMaterial3: true,
-        brightness: Brightness.dark,
-        appBarTheme: const AppBarTheme(
-          iconTheme: IconThemeData(color: Colors.white),
-          titleTextStyle: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-          ),
-          elevation: 0,
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent,
-            statusBarIconBrightness: Brightness.light,
-          ),
-        ),
-        textButtonTheme: const TextButtonThemeData(
-          style: ButtonStyle(
-            textStyle: WidgetStatePropertyAll(
-              TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      ),
-      debugShowCheckedModeBanner: false,
-      locale: _locale,
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: S.delegate.supportedLocales,
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashView.routeName,
+      child: BlocBuilder<AccountCubit, AccountState>(
+        builder: (context, state) {
+          return MaterialApp(
+            theme: Prefs.getBool(kIsDarkMode) == false
+                ? themeDataLight()
+                :  themeDataDark(),
+            debugShowCheckedModeBanner: false,
+            locale: changeLanguage(),
+            localizationsDelegates: [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            onGenerateRoute: onGenerateRoute,
+            initialRoute: SplashView.routeName,
+          );
+        },
+      ),
     );
+  }
+
+  Locale changeLanguage() {
+    if (Prefs.getBool(kNewLanguage) == null) {
+      Intl.systemLocale;
+      return Locale(Intl.systemLocale);
+    } else if (Prefs.getBool(kNewLanguage) == false) {
+      Prefs.setBool(kNewLanguage, false);
+      return Locale('en', 'US');
+    } else if (Prefs.getBool(kNewLanguage) == true) {
+      Prefs.setBool(kNewLanguage, true);
+      return Locale('ar', 'EG');
+    }
+
+    return Locale(Intl.systemLocale);
   }
 }

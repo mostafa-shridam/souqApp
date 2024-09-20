@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/widgets/custom_button.dart';
 import 'package:souq/core/widgets/custom_show_snack_bar.dart';
 import 'package:souq/core/widgets/custom_terms.dart';
@@ -40,13 +41,14 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           child: Column(
             children: [
               CustomTextFormField(
+                endPadding: kHorizontalPadding,
+                startPadding: kHorizontalPadding,
                 suffixIcon: Icon(
                   CupertinoIcons.person,
                   color: Color(
                     0xffC9CECF,
                   ),
                 ),
-                padding: 28,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return S.of(context).validatorName;
@@ -58,13 +60,14 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 textInputType: TextInputType.name,
               ),
               CustomTextFormField(
+                endPadding: kHorizontalPadding,
+                startPadding: kHorizontalPadding,
                 suffixIcon: Icon(
                   Icons.email_outlined,
                   color: Color(
                     0xffC9CECF,
                   ),
                 ),
-                padding: 28,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return S.of(context).validateEmail;
@@ -79,6 +82,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 textInputType: TextInputType.emailAddress,
               ),
               CustomTextFormField(
+                endPadding: kHorizontalPadding,
+                startPadding: kHorizontalPadding,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return S.of(context).validatePass;
@@ -163,24 +168,4 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
       ),
     );
   }
-}
-
-void showTermsAndConditionsDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (context) {
-      return CupertinoAlertDialog(
-        title: Text('AppLocalizations.of(context)!.termsAndConditions'),
-        content: Text('AppLocalizations.of(context)!.termsAndConditionsText'),
-        actions: [
-          TextButton(
-            child: Text('AppLocalizations.of(context)!.close'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
-  );
 }

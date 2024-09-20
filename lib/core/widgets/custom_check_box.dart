@@ -22,8 +22,9 @@ class CustomCheckBox extends StatelessWidget {
           style: BorderStyle.solid, width: 1.5, color: Color(0xffDDDFDF)),
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       activeColor: AppColors.primaryColor,
-      fillColor: WidgetStatePropertyAll(
-          isChacked == true ? AppColors.primaryColor : AppColors.fillColor),
+      fillColor: WidgetStatePropertyAll(isChacked == true
+          ? AppColors.primaryColor
+          : AppColors.fillColorLight,),
       value: isChacked,
       onChanged: (value) {
         onChecked(!isChacked);

@@ -39,6 +39,19 @@
   "AccountAlreadyExists" : "The account already exists for that email.",
   "CkeckInterNet" : "Make sure you are connected to the Internet",
   "UserNotFound" : "The email or password is incorrect",
-  "SelectLanguage":"Select Language",
-  "ForgetPassTitle" : "Forget password"
+  "ForgetPassTitle" : "Forget password",
+  "EditProfile" : "Edit profile",
+  "MyOrders" : "My Orders",
+  "Payments" : "Payments",
+  "Favourite" : "Favourite",
+  "Notifications" : "Notifications",
+  "Language" : "Language",
+  "Theme" : "Theme",
+  "SelectLanguage" : "Select Language",
+  "WhoAreWe" : "Who are we?",
+  "Searchfor":"Search for.......",
+  "offers" : "Offer",
+  "shopNowButton":"Shop Now",
+  "BestSelling" : "Best Selling",
+  "MoreBestSelling" : "More"
 }

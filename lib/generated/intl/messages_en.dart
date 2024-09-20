@@ -26,22 +26,33 @@ class MessageLookup extends MessageLookupByLibrary {
             "The account already exists for that email."),
         "AnErroeOccured": MessageLookupByLibrary.simpleMessage(
             "An error occured, please try later"),
+        "BestSelling": MessageLookupByLibrary.simpleMessage("Best Selling"),
         "CkeckInterNet": MessageLookupByLibrary.simpleMessage(
             "Make sure you are connected to the Internet"),
         "DisAgreeTerms": MessageLookupByLibrary.simpleMessage(
             "You must agree to the terms and conditions"),
+        "EditProfile": MessageLookupByLibrary.simpleMessage("Edit profile"),
+        "Favourite": MessageLookupByLibrary.simpleMessage("Favourite"),
         "ForgetPassTitle":
             MessageLookupByLibrary.simpleMessage("Forget password"),
+        "Language": MessageLookupByLibrary.simpleMessage("Language"),
+        "MoreBestSelling": MessageLookupByLibrary.simpleMessage("More"),
+        "MyOrders": MessageLookupByLibrary.simpleMessage("My Orders"),
         "NavBarAccount": MessageLookupByLibrary.simpleMessage("Account"),
         "NavBarCart": MessageLookupByLibrary.simpleMessage("Cart"),
         "NavBarHome": MessageLookupByLibrary.simpleMessage("Home"),
         "NavBarProducts": MessageLookupByLibrary.simpleMessage("Products"),
+        "Notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "PasswordWeak": MessageLookupByLibrary.simpleMessage(
             "The password you entered is very weak"),
+        "Payments": MessageLookupByLibrary.simpleMessage("Payments"),
+        "Searchfor": MessageLookupByLibrary.simpleMessage("Search for......."),
         "SelectLanguage":
             MessageLookupByLibrary.simpleMessage("Select Language"),
+        "Theme": MessageLookupByLibrary.simpleMessage("Theme"),
         "UserNotFound": MessageLookupByLibrary.simpleMessage(
             "The email or password is incorrect"),
+        "WhoAreWe": MessageLookupByLibrary.simpleMessage("Who are we?"),
         "agreeConditions": MessageLookupByLibrary.simpleMessage(
             "By creating an account, you agree to"),
         "appBarLogin": MessageLookupByLibrary.simpleMessage("Login"),
@@ -66,7 +77,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginButton": MessageLookupByLibrary.simpleMessage("Login"),
         "loginDivider": MessageLookupByLibrary.simpleMessage("Or"),
         "nameHintText": MessageLookupByLibrary.simpleMessage("Full name"),
+        "offers": MessageLookupByLibrary.simpleMessage("Offer"),
         "passHintText": MessageLookupByLibrary.simpleMessage("Password"),
+        "shopNowButton": MessageLookupByLibrary.simpleMessage("Shop Now"),
         "signUpButton":
             MessageLookupByLibrary.simpleMessage("Create new account"),
         "skipButton": MessageLookupByLibrary.simpleMessage("Skip"),

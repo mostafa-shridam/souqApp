@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:souq/core/services/shared_preferences.dart';
+import 'package:souq/core/utlis/app_colors.dart';
+import 'package:souq/core/utlis/constants/app_images.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key,required this.firstText, required this.secondText});
+  const CustomContainer(
+      {super.key, required this.firstText, required this.secondText});
   final String firstText, secondText;
   @override
   Widget build(BuildContext context) {
@@ -13,9 +18,10 @@ class CustomContainer extends StatelessWidget {
         ),
         height: 70,
         decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(width: 1,
-              color: Color(0xffF1F1F5)),
+          color: Prefs.getBool(kIsDarkMode) == false
+              ? Colors.white
+              : AppColors.fillColorDark,
+          border: Border.all(width: 1, color: Prefs.getBool(kIsDarkMode) == false ? AppColors.fillColorLight : AppColors.darkModeColor),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -24,14 +30,17 @@ class CustomContainer extends StatelessWidget {
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-
               children: [
                 Text('$firstText'),
                 Text('$secondText'),
               ],
             ),
             Spacer(),
-            Image.asset('assets/farwla.png', height: 40,width: 40,),
+            Image.asset(
+              Assets.imagesFarwla,
+              height: 40,
+              width: 40,
+            ),
           ],
         ),
       ),

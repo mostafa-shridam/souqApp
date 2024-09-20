@@ -18,7 +18,10 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
       key: formKey,
       child: Column(
         children: [
-          CustomSelectPhone(formKey: formKey,),
+          CustomSelectPhone(
+            controller: textEditingController,
+            hintText: '',
+          ),
         ],
       ),
     );

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/views/item_details_view/widgets/item_details_body.dart';
+
+import '../../core/utlis/constants/constants.dart';
 
 class ItemDetailsView extends StatelessWidget {
   const ItemDetailsView({
@@ -22,7 +25,9 @@ class ItemDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.fillColor,
+        backgroundColor: Prefs.getBool(kIsDarkMode) == false
+            ? AppColors.fillColorLight
+            : AppColors.fillColorDark,
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -45,11 +50,9 @@ class ItemDetailsView extends StatelessWidget {
               ],
             )),
         shape: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.elliptical(200, 80)
-          )
-        ),
+            borderSide: BorderSide.none,
+            borderRadius:
+                BorderRadius.vertical(bottom: Radius.elliptical(200, 80))),
       ),
       body: ItemDetailsBody(
         title: title,

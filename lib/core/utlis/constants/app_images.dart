@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
   
@@ -17,9 +18,17 @@ class Assets {
   /// assets/images/BackGroundImage2.svg
   static const String imagesBackGroundImage2 = "assets/images/BackGroundImage2.svg";
 
+  /// Assets for imagesBox
+  /// assets/images/box.svg
+  static const String imagesBox = "assets/images/box.svg";
+
   /// Assets for imagesCircles
   /// assets/images/Circles.svg
   static const String imagesCircles = "assets/images/Circles.svg";
+
+  /// Assets for imagesEmptyWallet
+  /// assets/images/empty-wallet.svg
+  static const String imagesEmptyWallet = "assets/images/empty-wallet.svg";
 
   /// Assets for imagesFaceBook
   /// assets/images/FaceBook.svg
@@ -28,6 +37,22 @@ class Assets {
   /// Assets for imagesFarwla
   /// assets/images/farwla.png
   static const String imagesFarwla = "assets/images/farwla.png";
+
+  /// Assets for imagesFeaturedImage
+  /// assets/images/featuredImage.svg
+  static const String imagesFeaturedImage = "assets/images/featuredImage.svg";
+
+  /// Assets for imagesFeaturedImageRotated
+  /// assets/images/featuredImageRotated.svg
+  static const String imagesFeaturedImageRotated = "assets/images/featuredImageRotated.svg";
+
+  /// Assets for imagesFilter
+  /// assets/images/filter.svg
+  static const String imagesFilter = "assets/images/filter.svg";
+
+  /// Assets for imagesGlobal
+  /// assets/images/global.svg
+  static const String imagesGlobal = "assets/images/global.svg";
 
   /// Assets for imagesGoogle
   /// assets/images/Google.svg
@@ -45,6 +70,10 @@ class Assets {
   /// assets/images/Logo.svg
   static const String imagesLogo = "assets/images/Logo.svg";
 
+  /// Assets for imagesNotification
+  /// assets/images/notification.svg
+  static const String imagesNotification = "assets/images/notification.svg";
+
   /// Assets for imagesOnboarding
   /// assets/images/Onboarding.png
   static const String imagesOnboarding = "assets/images/Onboarding.png";
@@ -52,5 +81,17 @@ class Assets {
   /// Assets for imagesPlant
   /// assets/images/Plant.svg
   static const String imagesPlant = "assets/images/Plant.svg";
+
+  /// Assets for imagesSearch
+  /// assets/images/search.svg
+  static const String imagesSearch = "assets/images/search.svg";
+
+  /// Assets for imagesUser
+  /// assets/images/user.svg
+  static const String imagesUser = "assets/images/user.svg";
+
+  /// Assets for imagesWattermallon
+  /// assets/images/wattermallon.svg
+  static const String imagesWattermallon = "assets/images/wattermallon.svg";
 }
 

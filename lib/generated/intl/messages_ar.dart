@@ -26,21 +26,32 @@ class MessageLookup extends MessageLookupByLibrary {
             "الحساب موجود بالفعل لهذا البريد الإلكتروني"),
         "AnErroeOccured": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ، يرجى المحاولة لاحقا"),
+        "BestSelling": MessageLookupByLibrary.simpleMessage("الاكثر مبيعاً"),
         "CkeckInterNet":
             MessageLookupByLibrary.simpleMessage("تأكد من الاتصال بالانترنت"),
         "DisAgreeTerms": MessageLookupByLibrary.simpleMessage(
             "يجب عليك الموافقة علي الشروط والاحكام"),
+        "EditProfile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "Favourite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "ForgetPassTitle":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "Language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "MoreBestSelling": MessageLookupByLibrary.simpleMessage("المزيد"),
+        "MyOrders": MessageLookupByLibrary.simpleMessage("طلباتي"),
         "NavBarAccount": MessageLookupByLibrary.simpleMessage("حسابي"),
         "NavBarCart": MessageLookupByLibrary.simpleMessage("العربة"),
         "NavBarHome": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "NavBarProducts": MessageLookupByLibrary.simpleMessage("المنتجات"),
+        "Notifications": MessageLookupByLibrary.simpleMessage("الاشعارات"),
         "PasswordWeak": MessageLookupByLibrary.simpleMessage(
             "كلمة المرور التي ادخلتها ضعيفة جدا"),
-        "SelectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+        "Payments": MessageLookupByLibrary.simpleMessage("المدفوعات"),
+        "Searchfor": MessageLookupByLibrary.simpleMessage("ابحث عن......."),
+        "SelectLanguage": MessageLookupByLibrary.simpleMessage("أخنر اللغة"),
+        "Theme": MessageLookupByLibrary.simpleMessage("الوضع"),
         "UserNotFound": MessageLookupByLibrary.simpleMessage(
             "البريد الالكتروني او كلمة السر غير صحيحه"),
+        "WhoAreWe": MessageLookupByLibrary.simpleMessage("من نحن؟"),
         "agreeConditions": MessageLookupByLibrary.simpleMessage(
             "من خلال إنشاء حساب ، فإنك توافق على"),
         "appBarLogin": MessageLookupByLibrary.simpleMessage("تسجيل دخول"),
@@ -66,7 +77,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "loginDivider": MessageLookupByLibrary.simpleMessage("أو"),
         "nameHintText": MessageLookupByLibrary.simpleMessage("الاسم كامل"),
+        "offers": MessageLookupByLibrary.simpleMessage("خصم"),
         "passHintText": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "shopNowButton": MessageLookupByLibrary.simpleMessage("تسوق الان"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
         "skipButton": MessageLookupByLibrary.simpleMessage("تخطي"),
         "startButton": MessageLookupByLibrary.simpleMessage("ابدأ الان"),

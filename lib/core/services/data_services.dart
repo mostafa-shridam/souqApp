@@ -1,8 +1,10 @@
-import 'package:souq/features/auth/data/domain/entites/user_intity.dart';
-
 abstract class DatabaseService {
-
- Future<void> addData(
-      {required String path, required Map<String, dynamic> data});
-  Future<UserEntity> getUserData({required String path , required String uid});
+  Future<void> addData(
+      {required String path,
+      required Map<String, dynamic> data,
+      String? documentId});
+  Future<Map<String, dynamic>> getData(
+      {required String path, required String documentId});
+  Future<bool> checkIfDataExists(
+      {required String path, required String docuementId});
 }

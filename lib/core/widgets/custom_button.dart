@@ -10,17 +10,20 @@ class CustomButton extends StatelessWidget {
     required this.text,
     this.color,
     this.textColor,
+    this.horizontalPadding,
   });
 
   final void Function() onPressed;
   final String text;
   final Color? color;
   final Color? textColor;
+  final double? horizontalPadding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+      padding: EdgeInsetsDirectional.symmetric(
+          horizontal: horizontalPadding ?? kHorizontalPadding),
       child: SizedBox(
         width: double.infinity,
         height: 54,

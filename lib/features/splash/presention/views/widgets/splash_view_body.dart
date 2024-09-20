@@ -5,12 +5,11 @@ import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/features/on_boarding/views/on_boarding_view.dart';
-import 'package:souq/views/nav_views/home_view.dart';
+import 'package:souq/views/nav_views/nav_bar_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
 
-  static const routeName = 'splash_body';
 
   @override
   State<SplashViewBody> createState() => _SplashViewBodyState();

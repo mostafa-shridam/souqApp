@@ -39,6 +39,19 @@
   "AccountAlreadyExists" : "الحساب موجود بالفعل لهذا البريد الإلكتروني",
   "CkeckInterNet" : "تأكد من الاتصال بالانترنت",
   "UserNotFound" : "البريد الالكتروني او كلمة السر غير صحيحه",
-  "SelectLanguage":"اختر اللغة",
-  "ForgetPassTitle" : "نسيت كلمة المرور"
+  "ForgetPassTitle" : "نسيت كلمة المرور",
+  "EditProfile" : "الملف الشخصي",
+  "MyOrders" : "طلباتي",
+  "Payments" : "المدفوعات",
+  "Favourite" : "المفضلة",
+  "Notifications" : "الاشعارات",
+  "Language" : "اللغة",
+  "Theme" : "الوضع",
+  "SelectLanguage" : "أخنر اللغة",
+  "WhoAreWe" : "من نحن؟",
+  "Searchfor":"ابحث عن.......",
+  "offers" : "خصم",
+  "shopNowButton":"تسوق الان",
+  "BestSelling" : "الاكثر مبيعاً",
+  "MoreBestSelling" : "المزيد"
 }

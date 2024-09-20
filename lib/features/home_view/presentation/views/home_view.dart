@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:souq/views/home_view/widgets/home_view_body.dart';
+import 'package:souq/features/home_view/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
   static const String routeName = 'home';
@@ -7,6 +7,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomeViewBodyItem();
+    return SafeArea(child: HomeViewBodyItem());
   }
 }

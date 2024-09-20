@@ -1,10 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
 import 'package:souq/core/widgets/custom_check_box.dart';
-import 'package:souq/features/auth/presentation/views/signup/widgets/sgin_up_view_body.dart';
+import 'package:souq/core/widgets/custom_show_terms_conditions.dart';
 import 'package:souq/generated/l10n.dart';
 
 class CustomTerms extends StatefulWidget {
@@ -38,7 +39,9 @@ class _CustomTermsState extends State<CustomTerms> {
               text: TextSpan(
                 text: '${S.of(context).agreeConditions} ',
                 style: TextStyles.regular13.copyWith(
-                  color: Colors.black,
+                  color: Prefs.getBool(kIsDarkMode) == false
+                      ? AppColors.fillColorDark
+                      : AppColors.fillColorLight,
                 ),
                 children: [
                   TextSpan(

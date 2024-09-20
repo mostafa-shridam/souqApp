@@ -25,4 +25,9 @@ class Prefs {
   {
     return _instance.getString(key) ?? '';
   }
+  
+  static Future<void> clear()
+  {
+    return _instance.clear();
+  }
 }

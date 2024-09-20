@@ -6,8 +6,7 @@ import 'package:souq/core/utlis/constants/app_images.dart';
 import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/widgets/custom_button.dart';
-import 'package:souq/core/widgets/custom_divider.dart';
-import 'package:souq/core/widgets/custom_show_snack_bar.dart';
+import 'package:souq/core/widgets/custom_divider_centre_text.dart';
 import 'package:souq/core/widgets/custom_social_button.dart';
 import 'package:souq/core/widgets/custom_text_button.dart';
 import 'package:souq/core/widgets/custom_text_form_filed.dart';
@@ -32,6 +31,7 @@ class _SginInViewBodyState extends State<SginInViewBody> {
 
   final TextEditingController passwordController = TextEditingController();
   bool isPass = false;
+  bool isLoginSuccess = false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +44,14 @@ class _SginInViewBodyState extends State<SginInViewBody> {
           child: Column(
             children: [
               CustomTextFormField(
+                endPadding: kHorizontalPadding,
+                startPadding: kHorizontalPadding,
                 suffixIcon: Icon(
                   Icons.email_outlined,
                   color: Color(
                     0xffC9CECF,
                   ),
                 ),
-                padding: 28,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Please enter your email';
@@ -65,6 +66,8 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                 textInputType: TextInputType.emailAddress,
               ),
               CustomTextFormField(
+                endPadding: kHorizontalPadding,
+                startPadding: kHorizontalPadding,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Please enter your password';
@@ -110,11 +113,11 @@ class _SginInViewBodyState extends State<SginInViewBody> {
               ),
               CustomButton(
                 onPressed: () {
-                  Prefs.setBool(kIsLogin, true);
+                  Prefs.setBool(kIsLogin, isLoginSuccess);
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     SignInCubit.get(context).signInWithEmailAndPassword(
-                        emailController.text, passwordController.text);
+                        emailController.text, passwordController.text,);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
@@ -136,7 +139,7 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                   ),
                 ],
               ),
-              CustomDivider(
+              CustomDividerCentreText(
                 text: S.of(context).loginDivider,
               ),
               SizedBox(
@@ -146,8 +149,8 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                 image: Assets.imagesGoogle,
                 title: S.of(context).googleButton,
                 onPressed: () {
-                  Prefs.setBool(kIsLogin, true);
                   SignInCubit.get(context).signInWithGoogle();
+                  Prefs.setBool(kIsLogin, isLoginSuccess);
                 },
               ),
               SizedBox(
@@ -157,8 +160,8 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                 image: Assets.imagesFaceBook,
                 title: S.of(context).facebookButton,
                 onPressed: () {
-                  Prefs.setBool(kIsLogin, true);
                   SignInCubit.get(context).signInWithFacebook();
+                  Prefs.setBool(kIsLogin, isLoginSuccess);
                 },
               ),
               Platform.isIOS
@@ -171,9 +174,8 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                           image: Assets.imagesApple,
                           title: S.of(context).appleButton,
                           onPressed: () {
-                            Prefs.setBool(kIsLogin, true);
-                            customShowSnackBar(context,
-                                message: 'Comming soon!');
+                            SignInCubit.get(context).signInWithApple();
+                            Prefs.setBool(kIsLogin, isLoginSuccess);
                           },
                         ),
                       ],

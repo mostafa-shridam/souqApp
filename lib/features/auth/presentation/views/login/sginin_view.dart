@@ -41,7 +41,7 @@ class _SginInViewState extends State<SginInView> {
             title: S.of(context).appBarLogin,
             centerTitle: true,
             actions: [
-              CustomDropDown(SouqAppState: SouqAppState),
+              CustomDropDown(),
             ],
           ),
           body: SginInViewBodyBlocConsumer(),

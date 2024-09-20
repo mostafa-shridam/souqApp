@@ -450,6 +450,86 @@ class S {
     );
   }
 
+  /// `Forget password`
+  String get ForgetPassTitle {
+    return Intl.message(
+      'Forget password',
+      name: 'ForgetPassTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit profile`
+  String get EditProfile {
+    return Intl.message(
+      'Edit profile',
+      name: 'EditProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Orders`
+  String get MyOrders {
+    return Intl.message(
+      'My Orders',
+      name: 'MyOrders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payments`
+  String get Payments {
+    return Intl.message(
+      'Payments',
+      name: 'Payments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favourite`
+  String get Favourite {
+    return Intl.message(
+      'Favourite',
+      name: 'Favourite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get Notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'Notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get Language {
+    return Intl.message(
+      'Language',
+      name: 'Language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get Theme {
+    return Intl.message(
+      'Theme',
+      name: 'Theme',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Select Language`
   String get SelectLanguage {
     return Intl.message(
@@ -460,11 +540,61 @@ class S {
     );
   }
 
-  /// `Forget password`
-  String get ForgetPassTitle {
+  /// `Who are we?`
+  String get WhoAreWe {
     return Intl.message(
-      'Forget password',
-      name: 'ForgetPassTitle',
+      'Who are we?',
+      name: 'WhoAreWe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for.......`
+  String get Searchfor {
+    return Intl.message(
+      'Search for.......',
+      name: 'Searchfor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offer`
+  String get offers {
+    return Intl.message(
+      'Offer',
+      name: 'offers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shop Now`
+  String get shopNowButton {
+    return Intl.message(
+      'Shop Now',
+      name: 'shopNowButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Best Selling`
+  String get BestSelling {
+    return Intl.message(
+      'Best Selling',
+      name: 'BestSelling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More`
+  String get MoreBestSelling {
+    return Intl.message(
+      'More',
+      name: 'MoreBestSelling',
       desc: '',
       args: [],
     );
