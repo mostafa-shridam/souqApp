@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/features/best_selling/presentation/views/best_selling_view.dart';
 import 'package:souq/generated/l10n.dart';
 
@@ -11,7 +10,7 @@ class BestSellelingHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: kHorizontalPadding,
+        horizontal: 8.0,
       ),
       child: Row(
         children: [

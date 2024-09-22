@@ -12,11 +12,10 @@ import 'package:souq/core/services/shared/bloc_observer.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/theme_mode.dart';
 import 'package:souq/features/account/cubit/account_cubit.dart';
-import 'package:souq/features/auth/data/domain/repo/auth_repo.dart';
 import 'package:souq/features/splash/presention/views/splash_view.dart';
 import 'package:souq/firebase_options.dart';
 import 'package:souq/generated/l10n.dart';
-import 'package:souq/views/nav_views/cubit/nav_bar_cubit.dart';
+import 'package:souq/features/home_view/presentation/views/cubit/home_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +32,6 @@ void main() async {
   await FirebaseAppCheck.instance.activate();
   await Prefs.init();
   setupGetIt();
-  Intl.getCurrentLocale();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -52,7 +50,7 @@ class SouqApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeCubit(getIt<AuthRepo>()),
+          create: (context) => HomeCubit(),
         ),
         BlocProvider(
           create: (context) => AccountCubit(),

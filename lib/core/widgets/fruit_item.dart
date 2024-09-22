@@ -8,9 +8,8 @@ import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/models/item_model.dart';
 
 class FruitItem extends StatefulWidget {
-  const FruitItem({super.key, required this.itemModelData});
+  const FruitItem({super.key,});
 
-  final ItemModel itemModelData;
 
   @override
   State<FruitItem> createState() => _FruitItemState();
@@ -35,18 +34,7 @@ class _FruitItemState extends State<FruitItem> {
       conte: 4,
       rate: 4.2,
     );
-    return GridView.builder(
-      itemCount: 10,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        childAspectRatio: 163 / 220,
-      ),
-      itemBuilder: (context, index) {
-        return Container(
+    return Container(
           decoration: ShapeDecoration(
             color: Prefs.getBool(kIsDarkMode) == false
                 ? AppColors.fillColorLight
@@ -77,8 +65,8 @@ class _FruitItemState extends State<FruitItem> {
                     SvgPicture.asset(
                       Assets.imagesImage2,
                       fit: BoxFit.contain,
-                      width: 110,
-                      height: 110,
+                      width: 120,
+                      height: 120,
                     ),
                     SizedBox(
                       height: 24,
@@ -129,7 +117,5 @@ class _FruitItemState extends State<FruitItem> {
             ],
           ),
         );
-      },
-    );
   }
 }

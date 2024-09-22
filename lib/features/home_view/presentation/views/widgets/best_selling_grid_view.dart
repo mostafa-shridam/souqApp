@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/widgets/fruit_item.dart';
 
-class BestSellingBody extends StatelessWidget {
-  const BestSellingBody({super.key});
+class BestSellingGridView extends StatelessWidget {
+  const BestSellingGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: EdgeInsets.symmetric(vertical: kVerticalPadding,horizontal: 12),
+    return SliverGrid.builder(
       itemCount: 22,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

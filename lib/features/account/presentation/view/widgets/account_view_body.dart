@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:souq/core/helper_functions/get_user_data.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
@@ -63,12 +64,12 @@ class AccountViewBody extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  const Column(
+                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('User Name'),
-                      Text('Email'),
+                      Text(getUserData().name),
+                      Text(getUserData().email),
                     ],
                   ),
                 ],

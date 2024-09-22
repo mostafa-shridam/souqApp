@@ -6,7 +6,7 @@ import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/widgets/custom_show_snack_bar.dart';
 import 'package:souq/features/auth/presentation/views/cubits/signin_cubit/signin_cubit.dart';
 import 'package:souq/features/auth/presentation/views/login/widgets/sginin_view_body.dart';
-import 'package:souq/views/nav_views/nav_bar_view.dart';
+import 'package:souq/features/home_view/presentation/views/home_view.dart';
 
 class SginInViewBodyBlocConsumer extends StatelessWidget {
   const SginInViewBodyBlocConsumer({super.key});
@@ -16,13 +16,12 @@ class SginInViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignInCubit, SignInState>(
       listener: (context, state) {
         if (state is SignInSuccess) {
-          Navigator.pushReplacementNamed(context, NavView.routeName);
+          Navigator.pushReplacementNamed(context, HomeView.routeName);
           customShowSnackBar(
             context,
             message: 'Success ${state.userEntity.name.toString()}',
             color: Colors.green.shade200,
           );
-          Prefs.setBool(kIsLogin, true);
         } else if (state is SignInFailure) {
           customShowSnackBar(
             context,

@@ -8,7 +8,6 @@ import 'package:souq/features/on_boarding/views/on_boarding_view.dart';
 import 'package:souq/features/splash/presention/views/splash_view.dart';
 import 'package:souq/features/home_view/presentation/views/home_view.dart';
 import 'package:souq/views/item_details_view/item_detials_view.dart';
-import 'package:souq/views/nav_views/nav_bar_view.dart';
 
 import '../../models/item_model.dart';
 
@@ -25,10 +24,6 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     case ForgetPasswordView.routeName:
       return MaterialPageRoute(
         builder: (context) => ForgetPasswordView(),
-      );
-    case NavView.routeName:
-      return MaterialPageRoute(
-        builder: (context) => NavView(),
       );
     case SginInView.routeName:
       return MaterialPageRoute(

@@ -13,11 +13,11 @@ abstract class AuthRepo {
   );
   Future addUserData({required UserEntity user});
   Future getUserData({required String uid});
+  Future saveUserData({required UserEntity user});
+
   Future<Either<Failure, UserEntity>> signInWithGoogle();
   Future<Either<Failure, UserEntity>> signInWithFacebook();
   Future<Either<Failure, UserEntity>> signInWithApple();
-
   Future deleteUser(User? user);
-
   Future signOut();
 }

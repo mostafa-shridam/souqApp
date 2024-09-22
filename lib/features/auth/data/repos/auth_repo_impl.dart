@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -6,7 +7,9 @@ import 'package:souq/core/errors/exception.dart';
 import 'package:souq/core/errors/filures.dart';
 import 'package:souq/core/services/data_services.dart';
 import 'package:souq/core/services/firebase_auth_service.dart';
+import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/backend_endpoint.dart';
+import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/features/auth/data/domain/entites/user_intity.dart';
 import 'package:souq/features/auth/data/domain/repo/auth_repo.dart';
 import 'package:souq/features/auth/data/models/user_model.dart';
@@ -28,6 +31,7 @@ class AuthRepoIml extends AuthRepo {
       );
       var userEntity = UserEntity(name: name, email: email, uId: user.uid);
       await addUserData(user: userEntity);
+      await saveUserData(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -68,6 +72,7 @@ class AuthRepoIml extends AuthRepo {
 
       var userEntity = await getUserData(uid: user.uid);
       await addUserData(user: userEntity);
+      await saveUserData(user: userEntity);
 
       return right(userEntity);
     } on CustomException catch (e) {
@@ -104,9 +109,12 @@ class AuthRepoIml extends AuthRepo {
           path: BackendEndpoint.isUserExists, docuementId: user.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
+        await saveUserData(user: userEntity);
       } else {
         await addUserData(user: userEntity);
+        await saveUserData(user: userEntity);
       }
+
       return right(userEntity);
     } on CustomException catch (e) {
       await deleteUser(user);
@@ -141,8 +149,10 @@ class AuthRepoIml extends AuthRepo {
           path: BackendEndpoint.isUserExists, docuementId: user.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
+        await saveUserData(user: userEntity);
       } else {
         await addUserData(user: userEntity);
+        await saveUserData(user: userEntity);
       }
       return right(userEntity);
     } on CustomException catch (e) {
@@ -179,8 +189,10 @@ class AuthRepoIml extends AuthRepo {
           path: BackendEndpoint.isUserExists, docuementId: user.uid);
       if (isUserExist) {
         await getUserData(uid: user.uid);
+        await saveUserData(user: userEntity);
       } else {
         await addUserData(user: userEntity);
+        await saveUserData(user: userEntity);
       }
       return right(userEntity);
     } catch (e) {
@@ -194,6 +206,11 @@ class AuthRepoIml extends AuthRepo {
         ),
       );
     }
+  }
+
+  @override
+  Future<void> signOut() async {
+    await firebaseAuthService.signOut();
   }
 
   @override
@@ -212,7 +229,9 @@ class AuthRepoIml extends AuthRepo {
     return UserModel.fromJson(userData);
   }
 
-  Future<void> signOut() async {
-    await firebaseAuthService.signOut();
+  @override
+  Future saveUserData({required UserEntity user}) async {
+    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+    await Prefs.setString(kUserData, jsonData);
   }
 }

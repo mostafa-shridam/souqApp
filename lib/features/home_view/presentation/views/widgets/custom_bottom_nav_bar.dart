@@ -5,7 +5,7 @@ import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
 import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/generated/l10n.dart';
-import 'package:souq/views/nav_views/cubit/nav_bar_cubit.dart';
+import 'package:souq/features/home_view/presentation/views/cubit/home_cubit.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
@@ -28,14 +28,14 @@ class CustomBottomNavBar extends StatelessWidget {
             color: Prefs.getBool(kIsDarkMode) == false
                 ? Color(0x19000000)
                 : AppColors.fillColorDark,
-            spreadRadius: 2,
-            blurRadius: 7,
-            offset: Offset(0, 3),
+            spreadRadius: 0,
+            blurRadius: 24,
+            offset: Offset(0, -2),
           )
         ],
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(24),
-          topLeft: Radius.circular(24),
+          topRight: Radius.circular(30),
+          topLeft: Radius.circular(30),
         ),
       ),
       child: BottomAppBar(

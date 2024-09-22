@@ -7,8 +7,8 @@ import 'package:souq/core/widgets/custom_show_snack_bar.dart';
 import 'package:souq/features/auth/data/domain/repo/auth_repo.dart';
 import 'package:souq/features/auth/presentation/views/cubits/signup_cubit/signup_cubit.dart';
 import 'package:souq/features/auth/presentation/views/signup/widgets/sgin_up_view_body.dart';
+import 'package:souq/features/home_view/presentation/views/home_view.dart';
 import 'package:souq/generated/l10n.dart';
-import 'package:souq/views/nav_views/nav_bar_view.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -29,7 +29,7 @@ class _SignUpViewState extends State<SignUpView> {
       child: BlocConsumer<SignupCubit, SignupState>(
         listener: (context, state) {
           if (state is SignupSuccess) {
-            Navigator.pushReplacementNamed(context, NavView.routeName);
+            Navigator.pushReplacementNamed(context, HomeView.routeName);
             customShowSnackBar(
               context,
               message: state.userEntity.name.toString(),

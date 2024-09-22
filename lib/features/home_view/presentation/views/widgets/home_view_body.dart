@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/features/home_view/presentation/views/widgets/best_selleling_header.dart';
-import 'package:souq/core/widgets/fruit_item.dart';
+import 'package:souq/features/home_view/presentation/views/widgets/best_selling_grid_view.dart';
 import 'package:souq/features/home_view/presentation/views/widgets/featured_list.dart';
 import 'package:souq/models/item_model.dart';
 import 'package:souq/features/home_view/presentation/views/widgets/custom_home_app_bar.dart';
@@ -26,30 +25,29 @@ class _HomeViewBodyItemState extends State<HomeViewBodyItem> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            children: [
-              CustomHomeAppBar(),
-              CustomSerchTextField(),
-              FeaturedList(),
-              SizedBox(
-                height: 12,
-              ),
-              BestSellelingHeader(),
-              Padding(
-                padding: const EdgeInsets.all(
-                  kVerticalPadding,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                CustomHomeAppBar(),
+                CustomSerchTextField(),
+                FeaturedList(),
+                SizedBox(
+                  height: 12,
                 ),
-                child: FruitItem(
-                  itemModelData: itemModel,
+                BestSellelingHeader(),
+                SizedBox(
+                  height: 8,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+          BestSellingGridView(),
+        ],
+      ),
     );
   }
 }

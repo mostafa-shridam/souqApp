@@ -14,7 +14,7 @@ class CustomSerchTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: kVerticalPadding,
+        horizontal: 8.0,
         vertical: kVerticalPadding,
       ),
       child: Container(

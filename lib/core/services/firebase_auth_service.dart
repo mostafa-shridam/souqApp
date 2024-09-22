@@ -189,4 +189,8 @@ await FirebaseAuth.instance.signInWithProvider(appleProvider);
     return (await FirebaseAuth.instance.signInWithCredential(oauthCredential))
         .user!;
   }
+
+  bool isSignedIn() {
+    return FirebaseAuth.instance.currentUser != null;
+  }
 }

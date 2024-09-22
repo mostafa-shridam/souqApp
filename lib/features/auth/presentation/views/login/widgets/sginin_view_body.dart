@@ -31,7 +31,6 @@ class _SginInViewBodyState extends State<SginInViewBody> {
 
   final TextEditingController passwordController = TextEditingController();
   bool isPass = false;
-  bool isLoginSuccess = false;
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +114,6 @@ class _SginInViewBodyState extends State<SginInViewBody> {
               ),
               CustomButton(
                 onPressed: () {
-                  Prefs.setBool(kIsLogin, isLoginSuccess);
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     SignInCubit.get(context).signInWithEmailAndPassword(
@@ -154,7 +152,6 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                 title: S.of(context).googleButton,
                 onPressed: () {
                   SignInCubit.get(context).signInWithGoogle();
-                  Prefs.setBool(kIsLogin, isLoginSuccess);
                 },
               ),
               SizedBox(
@@ -165,7 +162,6 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                 title: S.of(context).facebookButton,
                 onPressed: () {
                   SignInCubit.get(context).signInWithFacebook();
-                  Prefs.setBool(kIsLogin, isLoginSuccess);
                 },
               ),
               Platform.isIOS
@@ -179,7 +175,6 @@ class _SginInViewBodyState extends State<SginInViewBody> {
                           title: S.of(context).appleButton,
                           onPressed: () {
                             SignInCubit.get(context).signInWithApple();
-                            Prefs.setBool(kIsLogin, isLoginSuccess);
                           },
                         ),
                       ],
