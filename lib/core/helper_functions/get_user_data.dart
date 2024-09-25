@@ -13,3 +13,10 @@ UserEntity getUserData() {
 
   return userEntity;
 }
+
+UserEntity saveUserData({required UserEntity user}) {
+  var jsonString = jsonEncode(user.toMap());
+  Prefs.setString(kUserData, jsonString);
+
+  return user;
+}

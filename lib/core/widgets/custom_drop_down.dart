@@ -22,7 +22,7 @@ class CustomDropDown extends StatelessWidget {
             DropdownButton(
               icon: Icon(Icons.language),
               alignment: Alignment.center,
-              hint: Text(accountCubit.currentLanguage ? "العربية" : 'English'),
+              hint: Text(state is ChangeLanguageSuccess ? "العربية" : 'English'),
               padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
               iconDisabledColor: Color(
                 0xffC9CECF,
@@ -40,7 +40,7 @@ class CustomDropDown extends StatelessWidget {
               dropdownColor: AppColors.primaryColor.withOpacity(0.6),
               elevation: 6,
               isExpanded: false,
-              value: accountCubit.currentLanguage == false ? 'en' : 'ar',
+              value: state is ChangeLanguageSuccess == false ? 'en' : 'ar',
               onChanged: (value) {
                 if (value == 'en') {
                   accountCubit.changeLanguage(false);

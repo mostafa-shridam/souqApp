@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:souq/features/home_view/presentation/views/widgets/bottom_nav_bar/second_custom_navigation_bar.dart';
 import 'package:souq/features/home_view/presentation/views/cubit/home_cubit.dart';
-
-import 'widgets/bottom_nav_bar/second_custom_navigation_bar.dart';
 
 class HomeView extends StatelessWidget {
   static const String routeName = 'home';
@@ -18,7 +17,7 @@ class HomeView extends StatelessWidget {
                   HomeCubit.get(context).currentIndex,
                 ),
           ),
-          bottomNavigationBar: SecondCustomNavigationBar(),
+          bottomNavigationBar: SecondCustomNavigationBar(cubit: HomeCubit.get(context)),
         );
       },
     );

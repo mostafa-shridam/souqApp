@@ -62,12 +62,6 @@ ThemeData themeDataLight() {
       selectionColor: AppColors.primaryColor,
       selectionHandleColor: AppColors.primaryColor,
     ),
-    switchTheme: SwitchThemeData(
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        trackOutlineColor: WidgetStatePropertyAll(AppColors.primaryColor),
-        thumbColor: WidgetStatePropertyAll(AppColors.fillColorLight),
-        overlayColor: WidgetStatePropertyAll(AppColors.primaryColor),
-        trackColor: WidgetStatePropertyAll(AppColors.primaryColor)),
   );
 }
 
@@ -104,16 +98,6 @@ ThemeData themeDataDark() {
       hoverColor: AppColors.primaryColor.withOpacity(0.1),
       focusColor: AppColors.primaryColor.withOpacity(0.1),
       disabledColor: AppColors.primaryColor.withOpacity(0.1),
-    ),
-    switchTheme: SwitchThemeData(
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        trackOutlineColor: WidgetStatePropertyAll(AppColors.primaryColor),
-        thumbColor: WidgetStatePropertyAll(AppColors.fillColorDark),
-        overlayColor: WidgetStatePropertyAll(AppColors.primaryColor),
-        trackColor: WidgetStatePropertyAll(AppColors.primaryColor)),
-    checkboxTheme: CheckboxThemeData(
-      checkColor: WidgetStatePropertyAll(AppColors.fillColorLight),
-      fillColor: WidgetStatePropertyAll(AppColors.primaryColor),
     ),
     textTheme: TextTheme(
       bodyMedium: textColor,

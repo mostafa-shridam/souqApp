@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:souq/core/utlis/constants/app_images.dart';
 import 'package:souq/core/utlis/constants/constants.dart';
-import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/widgets/custom_button.dart';
 import 'package:souq/core/widgets/custom_divider_centre_text.dart';
 import 'package:souq/core/widgets/custom_social_button.dart';

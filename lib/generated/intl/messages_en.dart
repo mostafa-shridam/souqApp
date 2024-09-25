@@ -35,6 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "Favourite": MessageLookupByLibrary.simpleMessage("Favourite"),
         "ForgetPassTitle":
             MessageLookupByLibrary.simpleMessage("Forget password"),
+        "GeneralBarTitle": MessageLookupByLibrary.simpleMessage("General"),
+        "HelloBar": MessageLookupByLibrary.simpleMessage("Hello..."),
+        "HelpBarTitle": MessageLookupByLibrary.simpleMessage("Help"),
         "Language": MessageLookupByLibrary.simpleMessage("Language"),
         "MoreBestSelling": MessageLookupByLibrary.simpleMessage("More"),
         "MyOrders": MessageLookupByLibrary.simpleMessage("My Orders"),

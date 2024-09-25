@@ -35,6 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "Favourite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "ForgetPassTitle":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "GeneralBarTitle": MessageLookupByLibrary.simpleMessage("عام"),
+        "HelloBar": MessageLookupByLibrary.simpleMessage("مرحبا..."),
+        "HelpBarTitle": MessageLookupByLibrary.simpleMessage("المساعدة"),
         "Language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "MoreBestSelling": MessageLookupByLibrary.simpleMessage("المزيد"),
         "MyOrders": MessageLookupByLibrary.simpleMessage("طلباتي"),

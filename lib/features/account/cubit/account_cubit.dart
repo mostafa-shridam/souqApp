@@ -1,5 +1,9 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/features/auth/data/domain/repo/auth_repo.dart';
@@ -11,6 +15,28 @@ class AccountCubit extends Cubit<AccountState> {
   static AccountCubit get(context) => BlocProvider.of(context);
 
   AuthRepo? authRepo;
+
+  var picker = ImagePicker();
+  File? pickedFile;
+  void getNewImage(ImageSource fileSource) async {
+    final pickedFile = await picker.pickImage(source: fileSource);
+
+    if (pickedFile != null) {
+  log(pickedFile.path);
+      emit(
+        GetNewImageSuccess(
+          imagePath: pickedFile.path,
+        ),
+      );
+    }
+  }
+
+  Future<File?> xFileToFile(XFile xFile) async {
+    final directory = await xFile;
+    final file = File('${directory.path}/${xFile.name}');
+    return file;
+  }
+
   void changeThemeMode(bool isDark) {
     Prefs.setBool(kIsDarkMode, isDark);
     emit(
@@ -20,10 +46,9 @@ class AccountCubit extends Cubit<AccountState> {
     );
   }
 
-  bool currentLanguage = false;
   void changeLanguage(bool newLanguage) {
     Prefs.setBool(kNewLanguage, newLanguage);
-    currentLanguage = newLanguage;
+
     emit(
       ChangeLanguageSuccess(
         newLanguage: newLanguage,
@@ -51,7 +76,7 @@ class AccountCubit extends Cubit<AccountState> {
 
   Future<void> deleteUser() async {
     var user = FirebaseAuth.instance.currentUser;
-   await authRepo?.deleteUser(user);
+    await authRepo?.deleteUser(user);
 
     await Prefs.clear();
     emit(

@@ -23,3 +23,7 @@ final class ChangeNotigicationSuccess extends AccountState {
 
 
 final class SignOutSuccess extends AccountState {}
+final class GetNewImageSuccess extends AccountState {
+  final String imagePath;
+  GetNewImageSuccess({required this.imagePath});
+}

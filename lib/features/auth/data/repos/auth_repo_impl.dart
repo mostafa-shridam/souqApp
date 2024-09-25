@@ -29,7 +29,14 @@ class AuthRepoIml extends AuthRepo {
         email: email,
         password: password,
       );
-      var userEntity = UserEntity(name: name, email: email, uId: user.uid);
+      var userEntity = UserEntity(
+        name: name,
+        email: email,
+        uId: user.uid,
+        image: user.photoURL ??
+            "https://w7.pngwing.com/pngs/27/394/png-transparent-computer-icons-user-user-heroes-black-avatar-thumbnail.png",
+        phone: user.phoneNumber ?? 'Please add your phone number',
+      );
       await addUserData(user: userEntity);
       await saveUserData(user: userEntity);
       return right(userEntity);

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:souq/core/helper_functions/get_user_data.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/utlis/app_text_styles.dart';
@@ -13,6 +12,7 @@ import 'package:souq/core/widgets/custom_check_box.dart';
 import 'package:souq/core/widgets/custom_divider.dart';
 import 'package:souq/core/widgets/custom_select_item.dart';
 import 'package:souq/features/account/cubit/account_cubit.dart';
+import 'package:souq/features/account/presentation/view/widgets/account_app_bar.dart';
 import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/features/edit_account/presentation/views/edit_account_view.dart';
 import 'package:souq/generated/l10n.dart';
@@ -25,56 +25,16 @@ class AccountViewBody extends StatelessWidget {
     return BlocBuilder<AccountCubit, AccountState>(
       builder: (context, state) {
         final accountCubit = AccountCubit.get(context);
+
         return SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Stack(
-                    alignment: FractionalOffset.bottomCenter,
-                    clipBehavior: Clip.none,
-                    children: [
-                      SvgPicture.asset(
-                        Assets.imagesGoogle,
-                        height: 60,
-                        width: 60,
-                      ),
-                      Positioned(
-                        bottom: -10,
-                        child: CircleAvatar(
-                          radius: 15,
-                          backgroundColor: AppColors.fillColorLight,
-                          child: IconButton(
-                            padding: EdgeInsets.zero,
-                            onPressed: () {},
-                            icon: const Icon(
-                              CupertinoIcons.camera,
-                              color: AppColors.primaryColor,
-                              size: 20,
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                   Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(getUserData().name),
-                      Text(getUserData().email),
-                    ],
-                  ),
-                ],
+              AccountAppBar(accountCubit: accountCubit),
+              CustomDivider(
+                text: S.of(context).GeneralBarTitle,
               ),
-              CustomDivider(text: 'General'),
               CustomSelectItemInAccount(
                 firstIcon: SvgPicture.asset(Assets.imagesUser),
                 secondeIcon: Icons.arrow_forward_ios,
@@ -139,6 +99,7 @@ class AccountViewBody extends StatelessWidget {
                             vertical: kVerticalPadding),
                         child: CustomModalBottomSheet(
                           accountCubit: accountCubit,
+                          state: state,
                         ),
                       );
                     },
@@ -155,6 +116,9 @@ class AccountViewBody extends StatelessWidget {
               ),
               CustomChangeItemInAccount(
                 firstIcon: Icons.edit_outlined,
+                thumbIcon: Prefs.getBool(kIsDarkMode) == false
+                    ? Icons.light_mode
+                    : Icons.dark_mode,
                 itemName: '${S.of(context).Theme}',
                 onChanged: (bool changeValue) {
                   accountCubit.changeThemeMode(changeValue);
@@ -162,7 +126,7 @@ class AccountViewBody extends StatelessWidget {
                 value: Prefs.getBool(kIsDarkMode),
               ),
               CustomDivider(
-                text: 'المساعدة',
+                text: S.of(context).HelpBarTitle,
               ),
               CustomSelectItemInAccount(
                 firstIcon: Icon(
@@ -215,9 +179,11 @@ class CustomModalBottomSheet extends StatelessWidget {
   const CustomModalBottomSheet({
     super.key,
     required this.accountCubit,
+    required this.state,
   });
 
   final AccountCubit accountCubit;
+  final AccountState state;
 
   @override
   Widget build(BuildContext context) {
@@ -239,7 +205,7 @@ class CustomModalBottomSheet extends StatelessWidget {
           child: Row(
             children: [
               CustomCheckBox(
-                isChacked: accountCubit.currentLanguage,
+                isChacked: Prefs.getBool(kNewLanguage) == true ? true : false,
                 onChecked: (value) {
                   accountCubit.changeLanguage(value);
                   Navigator.pop(context);
@@ -261,7 +227,7 @@ class CustomModalBottomSheet extends StatelessWidget {
           child: Row(
             children: [
               CustomCheckBox(
-                isChacked: !accountCubit.currentLanguage,
+                isChacked: Prefs.getBool(kNewLanguage) == false ? true : false,
                 onChecked: (value) {
                   accountCubit.changeLanguage(false);
                   Navigator.pop(context);
@@ -278,3 +244,4 @@ class CustomModalBottomSheet extends StatelessWidget {
     );
   }
 }
+

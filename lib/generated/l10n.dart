@@ -460,6 +460,36 @@ class S {
     );
   }
 
+  /// `Hello...`
+  String get HelloBar {
+    return Intl.message(
+      'Hello...',
+      name: 'HelloBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General`
+  String get GeneralBarTitle {
+    return Intl.message(
+      'General',
+      name: 'GeneralBarTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help`
+  String get HelpBarTitle {
+    return Intl.message(
+      'Help',
+      name: 'HelpBarTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Edit profile`
   String get EditProfile {
     return Intl.message(

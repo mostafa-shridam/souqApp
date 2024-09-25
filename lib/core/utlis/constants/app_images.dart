@@ -18,6 +18,38 @@ class Assets {
   /// assets/images/BackGroundImage2.svg
   static const String imagesBackGroundImage2 = "assets/images/BackGroundImage2.svg";
 
+  /// Assets for imagesBottomCartBold
+  /// assets/images/bottom/cart_bold.svg
+  static const String imagesBottomCartBold = "assets/images/bottom/cart_bold.svg";
+
+  /// Assets for imagesBottomCartOutliend
+  /// assets/images/bottom/cart_outliend.svg
+  static const String imagesBottomCartOutliend = "assets/images/bottom/cart_outliend.svg";
+
+  /// Assets for imagesBottomHomeBold
+  /// assets/images/bottom/home_bold.svg
+  static const String imagesBottomHomeBold = "assets/images/bottom/home_bold.svg";
+
+  /// Assets for imagesBottomHomeOutliend
+  /// assets/images/bottom/home_outliend.svg
+  static const String imagesBottomHomeOutliend = "assets/images/bottom/home_outliend.svg";
+
+  /// Assets for imagesBottomProductsBold
+  /// assets/images/bottom/products_bold.svg
+  static const String imagesBottomProductsBold = "assets/images/bottom/products_bold.svg";
+
+  /// Assets for imagesBottomProductsOutliend
+  /// assets/images/bottom/products_outliend.svg
+  static const String imagesBottomProductsOutliend = "assets/images/bottom/products_outliend.svg";
+
+  /// Assets for imagesBottomUserBold
+  /// assets/images/bottom/user_bold.svg
+  static const String imagesBottomUserBold = "assets/images/bottom/user_bold.svg";
+
+  /// Assets for imagesBottomUserOutliend
+  /// assets/images/bottom/user_outliend.svg
+  static const String imagesBottomUserOutliend = "assets/images/bottom/user_outliend.svg";
+
   /// Assets for imagesBox
   /// assets/images/box.svg
   static const String imagesBox = "assets/images/box.svg";

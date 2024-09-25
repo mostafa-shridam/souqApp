@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:souq/core/services/shared_preferences.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/widgets/custom_show_snack_bar.dart';
 import 'package:souq/features/auth/presentation/views/cubits/signin_cubit/signin_cubit.dart';
 import 'package:souq/features/auth/presentation/views/login/widgets/sginin_view_body.dart';
