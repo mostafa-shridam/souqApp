@@ -9,7 +9,7 @@ class BestSellingBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       padding: EdgeInsets.symmetric(vertical: kVerticalPadding,horizontal: 12),
-      itemCount: 22,
+      itemCount: 12,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 10,

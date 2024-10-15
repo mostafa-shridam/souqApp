@@ -26,10 +26,11 @@ class SocialLoginButton extends StatelessWidget {
           style: TextButton.styleFrom(
             shape: RoundedRectangleBorder(
               side: BorderSide(
-                  color: Prefs.getBool(kIsDarkMode) == false
-                      ? AppColors.fillColorLight
-                      : AppColors.fillColorDark,
-                  width: 1),
+                color: Prefs.getBool(kIsDarkMode) == false
+                    ? AppColors.fillColorLight
+                    : AppColors.fillColorDark,
+                width: 2,
+              ),
               borderRadius: BorderRadius.circular(16),
             ),
           ),

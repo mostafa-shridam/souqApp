@@ -3,6 +3,8 @@ part of 'account_cubit.dart';
 sealed class AccountState {}
 
 final class AccountInitial extends AccountState {}
+final class SelectImageSuccess extends AccountState {}
+final class SelectImageFailure extends AccountState {}
 
 final class ChangeThemeSuccess extends AccountState {
   final bool themeMode;

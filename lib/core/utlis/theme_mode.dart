@@ -14,8 +14,13 @@ ThemeData themeDataLight() {
     brightness: Brightness.light,
     appBarTheme: const AppBarTheme(
       elevation: 0,
+      backgroundColor: Colors.transparent,
       systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarBrightness: Brightness.dark,
         statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.white,
+        systemNavigationBarIconBrightness: Brightness.dark,
+        systemNavigationBarDividerColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,
       ),
     ),
@@ -75,7 +80,8 @@ ThemeData themeDataDark() {
     useMaterial3: true,
     scaffoldBackgroundColor: AppColors.darkModeColor,
     brightness: Brightness.dark,
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.transparent,
       iconTheme: IconThemeData(color: Colors.white),
       titleTextStyle: TextStyle(
         color: Colors.white,
@@ -84,6 +90,9 @@ ThemeData themeDataDark() {
       elevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
+        systemNavigationBarColor: AppColors.darkModeColor,
+        systemNavigationBarIconBrightness: Brightness.light,
+        systemNavigationBarDividerColor: AppColors.darkModeColor,
         statusBarIconBrightness: Brightness.light,
       ),
     ),

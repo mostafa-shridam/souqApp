@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:souq/core/services/shared_preferences.dart';
@@ -15,26 +16,23 @@ class AccountCubit extends Cubit<AccountState> {
   static AccountCubit get(context) => BlocProvider.of(context);
 
   AuthRepo? authRepo;
+  File? fileImage;
+  ValueChanged<File?>? onFileChanged;
 
-  var picker = ImagePicker();
-  File? pickedFile;
-  void getNewImage(ImageSource fileSource) async {
-    final pickedFile = await picker.pickImage(source: fileSource);
+  Future<void> pickImage() async {
+    try {
+      final ImagePicker picker = ImagePicker();
+      final XFile? image = await picker.pickImage(
+          source: ImageSource.gallery, requestFullMetadata: true);
+      fileImage = File(image!.path);
+      onFileChanged!(fileImage);
+      emit(SelectImageSuccess());
+    } catch (e) {
+      log(e.toString());
+      emit(SelectImageFailure());
 
-    if (pickedFile != null) {
-  log(pickedFile.path);
-      emit(
-        GetNewImageSuccess(
-          imagePath: pickedFile.path,
-        ),
-      );
+      return;
     }
-  }
-
-  Future<File?> xFileToFile(XFile xFile) async {
-    final directory = await xFile;
-    final file = File('${directory.path}/${xFile.name}');
-    return file;
   }
 
   void changeThemeMode(bool isDark) {

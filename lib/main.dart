@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:souq/core/utlis/app_colors.dart';
 import 'package:souq/core/utlis/constants/constants.dart';
 import 'package:souq/core/helper_functions/on_generate_helper.dart';
 import 'package:souq/core/services/get_it_services.dart';
@@ -35,8 +36,18 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness:
-          Prefs.getBool(kIsDarkMode) ? Brightness.light : Brightness.dark,
+      statusBarIconBrightness: Prefs.getBool(kIsDarkMode) == false
+          ? Brightness.dark
+          : Brightness.light,
+      systemNavigationBarColor: Prefs.getBool(kIsDarkMode) == false
+          ? Colors.white
+          : AppColors.darkModeColor,
+      systemNavigationBarIconBrightness: Prefs.getBool(kIsDarkMode) == false
+          ? Brightness.dark
+          : Brightness.light,
+      systemNavigationBarDividerColor: Prefs.getBool(kIsDarkMode) == false
+          ? Colors.white
+          : AppColors.darkModeColor,
     ),
   );
   runApp(const SouqApp());
@@ -61,7 +72,7 @@ class SouqApp extends StatelessWidget {
           return MaterialApp(
             theme: Prefs.getBool(kIsDarkMode) == false
                 ? themeDataLight()
-                :  themeDataDark(),
+                : themeDataDark(),
             debugShowCheckedModeBanner: false,
             locale: changeLanguage(),
             localizationsDelegates: [

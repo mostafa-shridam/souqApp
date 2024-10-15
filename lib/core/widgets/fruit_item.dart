@@ -65,8 +65,8 @@ class _FruitItemState extends State<FruitItem> {
                     SvgPicture.asset(
                       Assets.imagesImage2,
                       fit: BoxFit.contain,
-                      width: 120,
-                      height: 120,
+                      width: 110,
+                      height: 110,
                     ),
                     SizedBox(
                       height: 24,

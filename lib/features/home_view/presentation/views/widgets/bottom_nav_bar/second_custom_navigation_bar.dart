@@ -12,7 +12,7 @@ class SecondCustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 70,
       decoration: BoxDecoration(
         color: Prefs.getBool(kIsDarkMode) == false
             ? Colors.white
@@ -21,7 +21,7 @@ class SecondCustomNavigationBar extends StatelessWidget {
           BoxShadow(
             color: Prefs.getBool(kIsDarkMode) == false
                 ? Color(0x19000000)
-                : const Color(0x181F1F1F),
+                : const Color(0xFF101010),
             spreadRadius: 0,
             blurRadius: 24,
             offset: Offset(0, -2),

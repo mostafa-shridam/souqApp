@@ -21,9 +21,19 @@ class CustomHomeAppBar extends StatelessWidget {
         style: TextStyles.bold19,
       ),
       leading: ClipRRect(
-        child: Image.network(
-          getUserData().image,
-        ),
+        child:Image.network(
+                getUserData().image,
+                width: 80,
+                height: 80,
+                fit: BoxFit.fill,
+                errorBuilder: (context, error, stackTrace) {
+                  return SvgPicture.asset(
+                    Assets.imagesUser,
+                    width: 80,
+                    height: 80,
+                  );
+                },
+              ),
         borderRadius: BorderRadius.circular(40),
       ),
       trailing: GestureDetector(

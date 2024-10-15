@@ -10,7 +10,6 @@ AppBar customAppBar(
   IconData? icon,
 }) {
   return AppBar(
-    backgroundColor: Colors.transparent,
     actions: actions,
     leading: leading != null
         ? GestureDetector(

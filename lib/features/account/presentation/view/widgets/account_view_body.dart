@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,9 +19,15 @@ import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/features/edit_account/presentation/views/edit_account_view.dart';
 import 'package:souq/generated/l10n.dart';
 
-class AccountViewBody extends StatelessWidget {
+class AccountViewBody extends StatefulWidget {
   const AccountViewBody({super.key});
 
+  @override
+  State<AccountViewBody> createState() => _AccountViewBodyState();
+}
+
+
+class _AccountViewBodyState extends State<AccountViewBody> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AccountCubit, AccountState>(
@@ -31,7 +39,11 @@ class AccountViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              AccountAppBar(accountCubit: accountCubit),
+              AccountAppBar(
+                onFileChanged: (image) {
+                  accountCubit.fileImage = image;
+                },
+              ),
               CustomDivider(
                 text: S.of(context).GeneralBarTitle,
               ),
@@ -95,8 +107,9 @@ class AccountViewBody extends StatelessWidget {
                       return Container(
                         height: 200,
                         padding: const EdgeInsets.symmetric(
-                            horizontal: kHorizontalPadding,
-                            vertical: kVerticalPadding),
+                          horizontal: kHorizontalPadding,
+                          vertical: kVerticalPadding,
+                        ),
                         child: CustomModalBottomSheet(
                           accountCubit: accountCubit,
                           state: state,
@@ -244,4 +257,3 @@ class CustomModalBottomSheet extends StatelessWidget {
     );
   }
 }
-
