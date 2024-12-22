@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
+import 'package:souq/core/utils/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
-import 'package:souq/core/utlis/app_colors.dart';
-import 'package:souq/core/utlis/app_text_styles.dart';
-import 'package:souq/features/account/cubit/account_cubit.dart';
+import 'package:souq/core/utils/app_colors.dart';
+import 'package:souq/core/utils/app_text_styles.dart';
+import 'package:souq/features/main_view/presentation/views/widgets/account/cubit/account_cubit.dart';
 
 class CustomDropDown extends StatelessWidget {
   const CustomDropDown({
@@ -37,7 +37,7 @@ class CustomDropDown extends StatelessWidget {
               ),
               underline: SizedBox(),
               borderRadius: BorderRadius.circular(16),
-              dropdownColor: AppColors.primaryColor.withOpacity(0.6),
+              dropdownColor: AppColors.primaryColor,
               elevation: 6,
               isExpanded: false,
               value: state is ChangeLanguageSuccess == false ? 'en' : 'ar',

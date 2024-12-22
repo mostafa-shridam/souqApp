@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:souq/core/repos/product_repo/product_repo.dart';
+import 'package:souq/core/repos/product_repo/product_repo_impl.dart';
 import 'package:souq/core/services/data_services.dart';
 import 'package:souq/core/services/firebase_auth_service.dart';
 import 'package:souq/core/services/firestore_services.dart';
@@ -14,6 +16,11 @@ void setupGetIt() {
     AuthRepoIml(
       databaseService: getIt<DatabaseService>(),
       firebaseAuthService: getIt<FirebaseAuthService>(),
+    ),
+  );
+    getIt.registerSingleton<ProductRepo>(
+    ProductRepoImpl(
+      databaseService: getIt<DatabaseService>(),
     ),
   );
 }

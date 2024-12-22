@@ -46,6 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '38517736356',
     projectId: 'souq-9ab11',
     authDomain: 'souq-9ab11.firebaseapp.com',
+    databaseURL: 'https://souq-9ab11-default-rtdb.firebaseio.com',
     storageBucket: 'souq-9ab11.appspot.com',
     measurementId: 'G-GZJKW9QPLF',
   );
@@ -55,6 +56,7 @@ class DefaultFirebaseOptions {
     appId: '1:38517736356:android:d00a91ab221871ea05b731',
     messagingSenderId: '38517736356',
     projectId: 'souq-9ab11',
+    databaseURL: 'https://souq-9ab11-default-rtdb.firebaseio.com',
     storageBucket: 'souq-9ab11.appspot.com',
   );
 
@@ -63,7 +65,10 @@ class DefaultFirebaseOptions {
     appId: '1:38517736356:ios:ddb658d078cfb6b905b731',
     messagingSenderId: '38517736356',
     projectId: 'souq-9ab11',
+    databaseURL: 'https://souq-9ab11-default-rtdb.firebaseio.com',
     storageBucket: 'souq-9ab11.appspot.com',
+    androidClientId: '38517736356-5ku9socbnn2rkg63h8k72ef7qcsvlcak.apps.googleusercontent.com',
+    iosClientId: '38517736356-tginkqv7r5qec9s2fcl6rum4nh8n6hqg.apps.googleusercontent.com',
     iosBundleId: 'com.example.souq',
   );
 
@@ -72,7 +77,10 @@ class DefaultFirebaseOptions {
     appId: '1:38517736356:ios:ddb658d078cfb6b905b731',
     messagingSenderId: '38517736356',
     projectId: 'souq-9ab11',
+    databaseURL: 'https://souq-9ab11-default-rtdb.firebaseio.com',
     storageBucket: 'souq-9ab11.appspot.com',
+    androidClientId: '38517736356-5ku9socbnn2rkg63h8k72ef7qcsvlcak.apps.googleusercontent.com',
+    iosClientId: '38517736356-tginkqv7r5qec9s2fcl6rum4nh8n6hqg.apps.googleusercontent.com',
     iosBundleId: 'com.example.souq',
   );
 
@@ -82,7 +90,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '38517736356',
     projectId: 'souq-9ab11',
     authDomain: 'souq-9ab11.firebaseapp.com',
+    databaseURL: 'https://souq-9ab11-default-rtdb.firebaseio.com',
     storageBucket: 'souq-9ab11.appspot.com',
     measurementId: 'G-T1CLV56YS7',
   );
+
 }

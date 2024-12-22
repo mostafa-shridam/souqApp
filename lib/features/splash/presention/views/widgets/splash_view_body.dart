@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:souq/core/services/firebase_auth_service.dart';
-import 'package:souq/core/utlis/constants/app_images.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
+import 'package:souq/core/utils/app_images.dart';
+import 'package:souq/core/utils/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
 import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
-import 'package:souq/features/home_view/presentation/views/home_view.dart';
+import 'package:souq/features/main_view/presentation/views/main_view.dart';
 import 'package:souq/features/on_boarding/views/on_boarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -66,7 +66,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         if (isSignedIn) {
           Navigator.pushReplacementNamed(
             context,
-            HomeView.routeName,
+            MainView.routeName,
           );
         } else {
           Navigator.pushReplacementNamed(

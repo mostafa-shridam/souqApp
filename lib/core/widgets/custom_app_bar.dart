@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:souq/core/utlis/app_text_styles.dart';
+import 'package:souq/core/utils/app_text_styles.dart';
 
 AppBar customAppBar(
   context, {

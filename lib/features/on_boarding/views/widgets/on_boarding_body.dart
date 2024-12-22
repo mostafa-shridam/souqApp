@@ -1,9 +1,9 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
+import 'package:souq/core/utils/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
-import 'package:souq/core/utlis/app_colors.dart';
+import 'package:souq/core/utils/app_colors.dart';
 import 'package:souq/core/widgets/custom_button.dart';
 import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/features/on_boarding/views/widgets/on_boarding_page_view.dart';
@@ -52,7 +52,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
               activeColor: AppColors.primaryColor,
               color: currentPage == 1
                   ? AppColors.primaryColor
-                  : AppColors.primaryColor.withOpacity(.5),
+                  : AppColors.primaryColor.withAlpha(100),
             ),
           ),
         ),

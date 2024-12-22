@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "DisAgreeTerms": MessageLookupByLibrary.simpleMessage(
             "يجب عليك الموافقة علي الشروط والاحكام"),
         "EditProfile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "FailedToGetProducts":
+            MessageLookupByLibrary.simpleMessage("فشل الحصول علي المنتجات"),
         "Favourite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "ForgetPassTitle":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
@@ -49,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "PasswordWeak": MessageLookupByLibrary.simpleMessage(
             "كلمة المرور التي ادخلتها ضعيفة جدا"),
         "Payments": MessageLookupByLibrary.simpleMessage("المدفوعات"),
+        "ProductsAppBar": MessageLookupByLibrary.simpleMessage("المنتجات"),
+        "SearchResultProducts": MessageLookupByLibrary.simpleMessage("نتائج"),
         "Searchfor": MessageLookupByLibrary.simpleMessage("ابحث عن......."),
         "SelectLanguage": MessageLookupByLibrary.simpleMessage("أخنر اللغة"),
         "Theme": MessageLookupByLibrary.simpleMessage("الوضع"),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
+import 'package:souq/core/utils/constants/constants.dart';
 import 'package:souq/core/services/shared_preferences.dart';
-import 'package:souq/core/utlis/app_text_styles.dart';
+import 'package:souq/core/utils/app_text_styles.dart';
 import 'package:souq/features/auth/presentation/views/login/sginin_view.dart';
 import 'package:souq/generated/l10n.dart';
 

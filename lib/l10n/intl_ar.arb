@@ -56,5 +56,11 @@
   "offers" : "خصم",
   "shopNowButton":"تسوق الان",
   "BestSelling" : "الاكثر مبيعاً",
-  "MoreBestSelling" : "المزيد"
+  "MoreBestSelling" : "المزيد",
+  "cartAppBar" : "العربة",
+  "FailedToGetProducts" : "فشل الحصول علي المنتجات",
+  "ProductsAppBar" : "المنتجات",
+  "SearchResultProducts" : "نتائج",
+  "EgyptianBound" : "جنية",
+  "ItemWeight" : "كم"
 }

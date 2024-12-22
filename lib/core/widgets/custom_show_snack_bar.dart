@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:souq/core/utlis/app_colors.dart';
+import 'package:souq/core/utils/app_colors.dart';
 
 void customShowSnackBar(BuildContext context,
     {required String message, Color? color}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: color ?? AppColors.primaryColor.withOpacity(0.8),
+      duration: const Duration(seconds: 1),
+      backgroundColor: color ?? AppColors.primaryColor,
       content: Text(
         message,
         style: TextStyle(color: Colors.white),

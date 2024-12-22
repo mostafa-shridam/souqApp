@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
+import 'package:souq/core/utils/constants/constants.dart';
 import 'package:souq/core/widgets/custom_button.dart';
 import 'package:souq/core/widgets/custom_show_snack_bar.dart';
 import 'package:souq/core/widgets/custom_terms.dart';

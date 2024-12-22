@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "DisAgreeTerms": MessageLookupByLibrary.simpleMessage(
             "You must agree to the terms and conditions"),
         "EditProfile": MessageLookupByLibrary.simpleMessage("Edit profile"),
+        "FailedToGetProducts":
+            MessageLookupByLibrary.simpleMessage("Failed to get products"),
         "Favourite": MessageLookupByLibrary.simpleMessage("Favourite"),
         "ForgetPassTitle":
             MessageLookupByLibrary.simpleMessage("Forget password"),
@@ -49,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "PasswordWeak": MessageLookupByLibrary.simpleMessage(
             "The password you entered is very weak"),
         "Payments": MessageLookupByLibrary.simpleMessage("Payments"),
+        "ProductsAppBar": MessageLookupByLibrary.simpleMessage("Products"),
+        "SearchResultProducts": MessageLookupByLibrary.simpleMessage("Results"),
         "Searchfor": MessageLookupByLibrary.simpleMessage("Search for......."),
         "SelectLanguage":
             MessageLookupByLibrary.simpleMessage("Select Language"),

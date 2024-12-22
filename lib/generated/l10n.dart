@@ -629,6 +629,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Failed to get products`
+  String get FailedToGetProducts {
+    return Intl.message(
+      'Failed to get products',
+      name: 'FailedToGetProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Products`
+  String get ProductsAppBar {
+    return Intl.message(
+      'Products',
+      name: 'ProductsAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Results`
+  String get SearchResultProducts {
+    return Intl.message(
+      'Results',
+      name: 'SearchResultProducts',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

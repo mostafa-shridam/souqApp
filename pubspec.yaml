@@ -6,6 +6,7 @@ version: 1.0.0+1
 environment:
   sdk: ">=3.3.4 <4.0.0"
 dependencies:
+  cached_network_image: ^3.4.1
   cloud_firestore: ^5.1.0
   country_code_picker: ^3.0.0
   crypto: ^3.0.5
@@ -30,13 +31,13 @@ dependencies:
   modal_progress_hud_nsn: ^0.5.1
   shared_preferences: ^2.2.3
   sign_in_with_apple: ^6.1.2
+  skeletonizer: ^1.4.2
 
 dev_dependencies:
   flutter_launcher_icons: ^0.14.1
   flutter_test:
     sdk: flutter
 flutter_launcher_icons:
-  android: launcher_icon
   ios: true
   image_path: assets/images/AppIcon.png
   min_sdk_android: 21
@@ -74,6 +75,5 @@ flutter_intl:
 
 flutter_assets:
   assets_path: assets/images/
-  output_path: lib/core/utlis/constants
+  output_path: lib/core/utils/constants
   filename: app_images.dart
-  field_prefix: null

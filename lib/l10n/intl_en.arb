@@ -56,5 +56,11 @@
   "offers" : "Offer",
   "shopNowButton":"Shop Now",
   "BestSelling" : "Best Selling",
-  "MoreBestSelling" : "More"
+  "MoreBestSelling" : "More",
+  "FailedToGetProducts" : "Failed to get products",
+  "cartAppBar" : "Cart",
+  "ProductsAppBar" : "Products",
+  "SearchResultProducts" : "Results",
+  "EgyptianBound" : "Bound",
+  "ItemWeight" : "kilo"
 }

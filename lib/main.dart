@@ -5,18 +5,21 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:souq/core/utlis/app_colors.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
+import 'package:souq/core/cubits/products_cubit/products_cubit.dart';
+import 'package:souq/core/utils/constants/constants.dart';
 import 'package:souq/core/helper_functions/on_generate_helper.dart';
 import 'package:souq/core/services/get_it_services.dart';
 import 'package:souq/core/services/shared/bloc_observer.dart';
 import 'package:souq/core/services/shared_preferences.dart';
-import 'package:souq/core/utlis/theme_mode.dart';
-import 'package:souq/features/account/cubit/account_cubit.dart';
+import 'package:souq/core/utils/theme_mode.dart';
+import 'package:souq/features/main_view/presentation/views/widgets/account/cubit/account_cubit.dart';
+import 'package:souq/features/main_view/presentation/views/cubit/main_cubit.dart';
+import 'package:souq/features/main_view/presentation/views/widgets/cart/presentation/cubit/cart_cubit.dart';
 import 'package:souq/features/splash/presention/views/splash_view.dart';
 import 'package:souq/firebase_options.dart';
 import 'package:souq/generated/l10n.dart';
-import 'package:souq/features/home_view/presentation/views/cubit/home_cubit.dart';
+
+import 'core/repos/product_repo/product_repo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,18 +39,8 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Prefs.getBool(kIsDarkMode) == false
-          ? Brightness.dark
-          : Brightness.light,
-      systemNavigationBarColor: Prefs.getBool(kIsDarkMode) == false
-          ? Colors.white
-          : AppColors.darkModeColor,
-      systemNavigationBarIconBrightness: Prefs.getBool(kIsDarkMode) == false
-          ? Brightness.dark
-          : Brightness.light,
-      systemNavigationBarDividerColor: Prefs.getBool(kIsDarkMode) == false
-          ? Colors.white
-          : AppColors.darkModeColor,
+      statusBarIconBrightness:
+          Prefs.getBool(kIsDarkMode) ? Brightness.light : Brightness.dark,
     ),
   );
   runApp(const SouqApp());
@@ -61,10 +54,18 @@ class SouqApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeCubit(),
+          create: (context) => MainCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ProductsCubit(
+            getIt.get<ProductRepo>(),
+          ),
         ),
         BlocProvider(
           create: (context) => AccountCubit(),
+        ),
+        BlocProvider(
+          create: (context) => CartCubit(),
         ),
       ],
       child: BlocBuilder<AccountCubit, AccountState>(

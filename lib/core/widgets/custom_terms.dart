@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:souq/core/services/shared_preferences.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
-import 'package:souq/core/utlis/app_colors.dart';
-import 'package:souq/core/utlis/app_text_styles.dart';
+import 'package:souq/core/utils/constants/constants.dart';
+import 'package:souq/core/utils/app_colors.dart';
+import 'package:souq/core/utils/app_text_styles.dart';
 import 'package:souq/core/widgets/custom_check_box.dart';
 import 'package:souq/core/widgets/custom_show_terms_conditions.dart';
 import 'package:souq/generated/l10n.dart';

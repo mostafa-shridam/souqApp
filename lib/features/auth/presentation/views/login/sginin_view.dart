@@ -7,7 +7,6 @@ import 'package:souq/features/auth/data/domain/repo/auth_repo.dart';
 import 'package:souq/features/auth/presentation/views/cubits/signin_cubit/signin_cubit.dart';
 import 'package:souq/features/auth/presentation/views/login/widgets/sginin_view_body_bloc_consumer.dart';
 import 'package:souq/generated/l10n.dart';
-import 'package:souq/main.dart';
 
 class SginInView extends StatefulWidget {
   const SginInView({
@@ -21,7 +20,6 @@ class SginInView extends StatefulWidget {
 }
 
 class _SginInViewState extends State<SginInView> {
-  SouqApp? SouqAppState;
   late SignInState state;
   @override
   void initState() {

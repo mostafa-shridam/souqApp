@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:souq/core/services/shared_preferences.dart';
-import 'package:souq/core/utlis/app_colors.dart';
-import 'package:souq/core/utlis/constants/app_images.dart';
-import 'package:souq/core/utlis/constants/constants.dart';
+import 'package:souq/core/utils/app_colors.dart';
+import 'package:souq/core/utils/app_images.dart';
+import 'package:souq/core/utils/constants/constants.dart';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer(

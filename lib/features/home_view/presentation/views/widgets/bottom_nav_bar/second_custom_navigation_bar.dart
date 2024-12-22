@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:souq/features/home_view/presentation/views/cubit/home_cubit.dart';
+import 'package:souq/features/main_view/presentation/views/cubit/main_cubit.dart';
+
 import '../../../../../../core/services/shared_preferences.dart';
-import '../../../../../../core/utlis/app_colors.dart';
-import '../../../../../../core/utlis/constants/constants.dart';
-import 'domain/entites/bottom_navigation_bar_entites.dart';
-import 'navigation_bar_item.dart';
+import '../../../../../../core/utils/app_colors.dart';
+import '../../../../../../core/utils/constants/constants.dart';
+import '../../../../../main_view/presentation/views/widgets/bottom_nav_bar/domain/entites/bottom_navigation_bar_entites.dart';
+import '../../../../../main_view/presentation/views/widgets/bottom_nav_bar/navigation_bar_item.dart';
+
+
 
 class SecondCustomNavigationBar extends StatelessWidget {
   const SecondCustomNavigationBar({super.key, required this.cubit});
-  final HomeCubit cubit;
+  final MainCubit cubit;
   @override
   Widget build(BuildContext context) {
     return Container(
