@@ -18,6 +18,7 @@ class FeaturedItemButton extends StatelessWidget {
           surfaceTintColor: AppColors.primaryColor,
           splashFactory: InkSplash.splashFactory,
           shape: RoundedRectangleBorder(
+            
             borderRadius: BorderRadius.circular(
               4,
             ),
@@ -33,7 +34,7 @@ class FeaturedItemButton extends StatelessWidget {
             child: Text(
               S.of(context).shopNowButton,
               textAlign: TextAlign.center,
-              style: TextStyles.bold13.copyWith(
+              style: AppText.bold13.copyWith(
                 color: AppColors.primaryColor,
               ),
             ),

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:souq/core/entites/product_entity.dart';
 import 'package:souq/core/utils/constants/constants.dart';
 import 'package:souq/core/widgets/custom_cached_image.dart';
+import 'package:souq/features/main_view/presentation/views/widgets/cart/presentation/cubit/cart_cubit.dart';
 import 'package:souq/features/main_view/presentation/views/widgets/cart/presentation/domain/cart_item_entity.dart';
-import 'package:souq/generated/l10n.dart';
 
 import '../../../../../../../../../core/utils/app_colors.dart';
 import '../../../../../../../../../core/utils/app_images.dart';
@@ -52,11 +53,11 @@ class CartItem extends StatelessWidget {
               children: [
                 Text(
                   item.productName,
-                  style: TextStyles.bold13,
+                  style: AppText.bold13,
                 ),
                 Text(
                   "${cartItemEntity.calculatTotalWeight()} Kilo",
-                  style: TextStyles.regular13.copyWith(
+                  style: AppText.regular13.copyWith(
                     color: AppColors.secondaryColor,
                   ),
                 ),
@@ -72,13 +73,14 @@ class CartItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  context.read<CartCubit>().removeItem(item);
+                },
                 child: SvgPicture.asset(Assets.imagesTrash),
               ),
               Text(
                 "${cartItemEntity.calculatTotalPrice()} Bound",
-                style:
-                    TextStyles.bold16.copyWith(color: AppColors.secondaryColor),
+                style: AppText.bold16.copyWith(color: AppColors.secondaryColor),
               ),
             ],
           ),

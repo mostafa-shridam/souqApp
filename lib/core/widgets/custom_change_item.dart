@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:souq/core/utils/app_colors.dart';
 import 'package:souq/core/utils/constants/constants.dart';
 
-import '../services/shared_preferences.dart';
-
 class CustomChangeItemInAccount extends StatelessWidget {
   const CustomChangeItemInAccount({
     super.key,
@@ -14,7 +12,7 @@ class CustomChangeItemInAccount extends StatelessWidget {
     this.thumbIcon,
   });
   final IconData firstIcon;
-  final IconData ? thumbIcon;
+  final IconData? thumbIcon;
   final String itemName;
   final void Function(bool)? onChanged;
   final bool value;
@@ -44,13 +42,6 @@ class CustomChangeItemInAccount extends StatelessWidget {
             value: value,
             onChanged: onChanged,
             thumbIcon: WidgetStatePropertyAll(Icon(thumbIcon)),
-            activeColor: Prefs.getBool(kIsDarkMode) == false
-                ? AppColors.fillColorLight
-                : AppColors.fillColorDark,
-            activeTrackColor: AppColors.primaryColor,
-            inactiveTrackColor: Prefs.getBool(kIsDarkMode) == false
-                ? AppColors.fillColorLight
-                : AppColors.fillColorDark,
           ),
         ],
       ),

@@ -101,7 +101,7 @@ class BuildSelectedButton extends StatelessWidget {
             : EdgeInsets.only(left: 16.0, right: 4.0),
         child: Text(
           title[index],
-          style: TextStyles.semiBold13.copyWith(
+          style: AppText.semiBold13.copyWith(
               color: Prefs.getBool(kIsDarkMode) == false
                   ? AppColors.fillColorDark
                   : AppColors.fillColorLight),

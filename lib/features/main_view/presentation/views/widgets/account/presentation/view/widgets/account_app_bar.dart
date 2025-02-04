@@ -103,17 +103,18 @@ class AccountAppBar extends StatelessWidget {
                           width: 80,
                           fit: BoxFit.fill,
                         )
-                      : getUserData().image.isNotEmpty
-                          ? Image.network(
-                              getUserData().image,
-                              width: 80,
-                              height: 80,
-                            )
-                          : SvgPicture.asset(
-                              Assets.imagesUser,
-                              width: 80,
-                              height: 80,
-                            ),
+                      : Image.network(
+                          getUserData().image,
+                          width: 80,
+                          height: 80,
+                          fit: BoxFit.fill,
+                          errorBuilder: (context, error, stackTrace) =>
+                              SvgPicture.asset(
+                            Assets.imagesUser,
+                            width: 80,
+                            height: 80,
+                          ),
+                        ),
                 ),
               ),
               Positioned(
@@ -147,11 +148,11 @@ class AccountAppBar extends StatelessWidget {
             children: [
               Text(
                 getUserData().name,
-                style: TextStyles.bold13,
+                style: AppText.bold13,
               ),
               Text(
                 getUserData().email,
-                style: TextStyles.regular13,
+                style: AppText.regular13,
               ),
             ],
           ),
@@ -169,11 +170,11 @@ class SecondAccountAppBar extends StatelessWidget {
     return ListTile(
       title: Text(
         getUserData().name,
-        style: TextStyles.regular13,
+        style: AppText.regular13,
       ),
       subtitle: Text(
         getUserData().email,
-        style: TextStyles.regular16,
+        style: AppText.regular16,
       ),
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(90),

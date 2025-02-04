@@ -18,31 +18,35 @@ import 'package:souq/features/main_view/presentation/views/widgets/cart/presenta
 import 'package:souq/features/splash/presention/views/splash_view.dart';
 import 'package:souq/firebase_options.dart';
 import 'package:souq/generated/l10n.dart';
-
 import 'core/repos/product_repo/product_repo.dart';
+import 'package:collection/collection.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+
+  // Initialize Firebase and AppCheck once
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await FirebaseAppCheck.instance.activate(
     androidProvider: AndroidProvider.playIntegrity,
     appleProvider: AppleProvider.appAttest,
     webProvider: ReCaptchaV3Provider(kWebProvider),
   );
 
-  Bloc.observer = await CustomBlocObserver();
-  await FirebaseAppCheck.instance.activate();
+  // Set up Bloc and preferences
+  Bloc.observer = CustomBlocObserver();
   await Prefs.init();
   setupGetIt();
+
+  // Set system UI style based on theme mode
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness:
-          Prefs.getBool(kIsDarkMode) ? Brightness.light : Brightness.dark,
+      statusBarIconBrightness: Prefs.getBool(kIsDarkMode) == true
+          ? Brightness.light
+          : Brightness.dark,
     ),
   );
+
   runApp(const SouqApp());
 }
 
@@ -53,29 +57,25 @@ class SouqApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => MainCubit()),
         BlocProvider(
-          create: (context) => MainCubit(),
-        ),
-        BlocProvider(
-          create: (context) => ProductsCubit(
-            getIt.get<ProductRepo>(),
-          ),
-        ),
-        BlocProvider(
-          create: (context) => AccountCubit(),
-        ),
-        BlocProvider(
-          create: (context) => CartCubit(),
-        ),
+            create: (context) => ProductsCubit(getIt.get<ProductRepo>())),
+        BlocProvider(create: (context) => AccountCubit()),
+        BlocProvider(create: (context) => CartCubit()),
       ],
       child: BlocBuilder<AccountCubit, AccountState>(
         builder: (context, state) {
+          ThemeMode themeMode = context.read<AccountCubit>().changeThemeMode(
+                Prefs.getBool(kIsDarkMode) == true
+                    ? ThemeMode.dark
+                    : ThemeMode.light,
+              );
           return MaterialApp(
-            theme: Prefs.getBool(kIsDarkMode) == false
-                ? themeDataLight()
-                : themeDataDark(),
+            themeMode: themeMode,
+            theme: appTheme(kAppFontFamily),
+            darkTheme: darkTheme(kAppFontFamily),
             debugShowCheckedModeBanner: false,
-            locale: changeLanguage(),
+            locale: _getLocale(),
             localizationsDelegates: [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
@@ -91,18 +91,12 @@ class SouqApp extends StatelessWidget {
     );
   }
 
-  Locale changeLanguage() {
-    if (Prefs.getBool(kNewLanguage) == null) {
-      Intl.systemLocale;
+  // Simplified language selection logic
+  Locale _getLocale() {
+    bool? isNewLanguage = Prefs.getBool(kNewLanguage);
+    if (isNewLanguage == null) {
       return Locale(Intl.systemLocale);
-    } else if (Prefs.getBool(kNewLanguage) == false) {
-      Prefs.setBool(kNewLanguage, false);
-      return Locale('en', 'US');
-    } else if (Prefs.getBool(kNewLanguage) == true) {
-      Prefs.setBool(kNewLanguage, true);
-      return Locale('ar', 'EG');
     }
-
-    return Locale(Intl.systemLocale);
+    return Locale(isNewLanguage ? 'ar' : 'en', isNewLanguage ? 'EG' : 'US');
   }
 }

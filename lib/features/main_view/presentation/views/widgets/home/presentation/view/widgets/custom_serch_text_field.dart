@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:souq/core/services/shared_preferences.dart';
-import 'package:souq/core/utils/app_colors.dart';
-import 'package:souq/core/utils/app_text_styles.dart';
-import 'package:souq/core/utils/app_images.dart';
-import 'package:souq/core/utils/constants/constants.dart';
-import 'package:souq/generated/l10n.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../../../../../../../core/services/shared_preferences.dart';
+import '../../../../../../../../../core/utils/app_colors.dart';
+import '../../../../../../../../../core/utils/app_images.dart';
+import '../../../../../../../../../core/utils/app_text_styles.dart';
+import '../../../../../../../../../core/utils/constants/constants.dart';
+import '../../../../../../../../../generated/l10n.dart';
 
 class CustomSerchTextField extends StatelessWidget {
   const CustomSerchTextField({super.key});
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode =
+        Prefs.getBool(kIsDarkMode) ?? false; // تخزين حالة الوضع الداكن
+
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 8.0,
@@ -19,9 +23,9 @@ class CustomSerchTextField extends StatelessWidget {
       ),
       child: Container(
         decoration: ShapeDecoration(
-          color: Prefs.getBool(kIsDarkMode) == false
-              ? Colors.white
-              : AppColors.darkModeColor,
+          color: isDarkMode
+              ? AppColors.darkModeColor
+              : Colors.white, // استخدام المتغير هنا
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
           shadows: [
             BoxShadow(
@@ -37,48 +41,58 @@ class CustomSerchTextField extends StatelessWidget {
           textCapitalization: TextCapitalization.words,
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
-            prefixIcon: SizedBox(
-              width: 30,
-              height: 30,
-              child: Center(
-                child: SvgPicture.asset(
-                  Assets.imagesSearch,
-                ),
-              ),
-            ),
-            suffixIcon: SizedBox(
-              width: 30,
-              child: Center(
-                child: SvgPicture.asset(
-                  Assets.imagesFilter,
-                ),
-              ),
-            ),
-            hintStyle: TextStyles.bold13.copyWith(
+            prefixIcon: _buildPrefixIcon(),
+            suffixIcon: _buildSuffixIcon(),
+            hintStyle: AppText.bold13.copyWith(
               color: const Color(0xFF949D9E),
             ),
             hintText: S.of(context).Searchfor,
-            border: _buildBorder(),
-            fillColor: Prefs.getBool(kIsDarkMode) == false
-                ? AppColors.fillColorLight
-                : AppColors.fillColorDark,
-            enabledBorder: _buildBorder(),
-            focusedBorder: _buildBorder(),
+            border: _buildBorder(isDarkMode), // تمرير المتغير هنا
+            fillColor: isDarkMode
+                ? AppColors.fillColorDark
+                : AppColors.fillColorLight, // استخدام المتغير هنا
+            enabledBorder: _buildBorder(isDarkMode),
+            focusedBorder: _buildBorder(isDarkMode),
           ),
         ),
       ),
     );
   }
-}
 
-OutlineInputBorder _buildBorder() {
-  return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(4),
-    borderSide: BorderSide(
-      width: 1,
-      color: Prefs.getBool(kIsDarkMode) == false
-          ? AppColors.fillColorLight
-          : AppColors.fillColorDark,
-    ),
-  );
+  // دالة لبناء الـ prefixIcon بشكل منفصل
+  Widget _buildPrefixIcon() {
+    return SizedBox(
+      width: 30,
+      height: 30,
+      child: Center(
+        child: SvgPicture.asset(
+          Assets.imagesSearch,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSuffixIcon() {
+    return SizedBox(
+      width: 30,
+      child: Center(
+        child: SvgPicture.asset(
+          Assets.imagesFilter,
+        ),
+      ),
+    );
+  }
+
+  // دالة لبناء الحدود مع تمرير حالة الـ Dark Mode
+  OutlineInputBorder _buildBorder(bool isDarkMode) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(4),
+      borderSide: BorderSide(
+        width: 1,
+        color: isDarkMode
+            ? AppColors.fillColorDark
+            : AppColors.fillColorLight, // استخدام المتغير هنا
+      ),
+    );
+  }
 }

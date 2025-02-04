@@ -13,18 +13,16 @@ class ProductsViewHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
-      
         children: [
           Text(
             "$resultLeanth ${S.of(context).SearchResultProducts}",
-            style: TextStyles.bold16,
+            style: AppText.bold16,
           ),
           Spacer(),
           GestureDetector(
             onTap: () {},
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(

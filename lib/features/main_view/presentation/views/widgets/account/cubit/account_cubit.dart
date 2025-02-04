@@ -35,13 +35,23 @@ class AccountCubit extends Cubit<AccountState> {
     }
   }
 
-  void changeThemeMode(bool isDark) {
+  ThemeMode changeThemeMode(ThemeMode newThemeMode) {
+    bool isDark = newThemeMode == ThemeMode.dark;
+
+    // التحقق إذا كانت القيمة الحالية هي نفسها الجديدة
+    bool currentThemeMode = Prefs.getBool(kIsDarkMode) ?? false;
+
+    if (currentThemeMode == isDark) {
+      return newThemeMode; // إذا كانت نفس القيمة، لا حاجة لتحديث الحالة
+    }
+
+    // حفظ القيمة الجديدة
     Prefs.setBool(kIsDarkMode, isDark);
-    emit(
-      ChangeThemeSuccess(
-        themeMode: isDark,
-      ),
-    );
+
+    // إصدار الحالة الجديدة
+    emit(ChangeThemeSuccess(themeMode: newThemeMode));
+
+    return isDark ? ThemeMode.dark : ThemeMode.light;
   }
 
   void changeLanguage(bool newLanguage) {

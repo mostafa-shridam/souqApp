@@ -25,7 +25,7 @@ AppBar customAppBar(
     title: Text(
       title,
       textAlign: TextAlign.center,
-      style: TextStyles.bold19,
+      style: AppText.bold19,
     ),
   );
 }

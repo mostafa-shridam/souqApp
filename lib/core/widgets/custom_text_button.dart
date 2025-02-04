@@ -8,7 +8,9 @@ class CustomTextButton extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.text,
-    this.maxLines, this.horizontalPadding, this.verticalPadding,
+    this.maxLines,
+    this.horizontalPadding,
+    this.verticalPadding,
   });
 
   final void Function() onTap;
@@ -20,7 +22,9 @@ class CustomTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: horizontalPadding ?? 4 , vertical: verticalPadding ??  kVerticalPadding),
+      padding: EdgeInsets.symmetric(
+          horizontal: horizontalPadding ?? 4,
+          vertical: verticalPadding ?? kVerticalPadding),
       child: InkWell(
         splashColor: AppColors.primaryColor,
         borderRadius: BorderRadius.circular(
@@ -30,7 +34,7 @@ class CustomTextButton extends StatelessWidget {
         child: Text(
           maxLines: maxLines,
           text,
-          style: TextStyles.regular13.copyWith(
+          style: AppText.regular13.copyWith(
             color: AppColors.primaryColor,
           ),
         ),

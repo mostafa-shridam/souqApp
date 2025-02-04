@@ -11,11 +11,8 @@ class CustomDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Prefs.getBool(kIsDarkMode)== false
-            ? AppColors.fillColorLight
-            : AppColors.fillColorDark,
-      ),
+  
+  color: Prefs.getBool(kIsDarkMode) == false ? AppColors.fillColorLight : AppColors.fillColorDark,
       padding: const EdgeInsetsDirectional.symmetric(
         horizontal: kHorizontalPadding,
         vertical: 6,
@@ -29,7 +26,7 @@ class CustomDivider extends StatelessWidget {
         children: [
           Text(
             text,
-            style: TextStyles.semiBold13,
+            style: AppText.semiBold13,
           ),
         ],
       ),

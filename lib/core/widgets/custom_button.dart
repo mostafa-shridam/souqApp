@@ -43,7 +43,7 @@ class CustomButton extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyles.bold16.copyWith(
+            style: AppText.bold16.copyWith(
               color: textColor ?? Colors.white,
             ),
           ),

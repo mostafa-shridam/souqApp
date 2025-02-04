@@ -12,11 +12,13 @@ class CustomNetWorkImage extends StatelessWidget {
     return Flexible(
       child: CachedNetworkImage(
         imageUrl: imageUrl,
-        fit: BoxFit.contain,
-        width: 110,
-        height: 110,
+        fit: BoxFit.fill,
+        width: 80,
+        height: 140,
         alignment: Alignment.center,
-      
+        placeholder: (context, url) =>
+            Center(child: CircularProgressIndicator()),
+        errorWidget: (context, url, error) => Icon(Icons.error),
       ),
     );
   }

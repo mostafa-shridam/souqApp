@@ -20,12 +20,12 @@ class BestSellelingHeader extends StatelessWidget {
           children: [
             Text(
               S.of(context).BestSelling,
-              style: TextStyles.bold16,
+              style: AppText.bold16,
             ),
             Spacer(),
             Text(
               S.of(context).MoreBestSelling,
-              style: TextStyles.regular13.copyWith(
+              style: AppText.regular13.copyWith(
                 color: Color(0xff949D9E),
               ),
             ),

@@ -14,7 +14,8 @@ class CartViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) {
-        return Stack(
+        var cubit = context.read<CartCubit>().cartEntity;
+        return cubit.cartItemEntity.isEmpty ? Center(child: Text('Cart is empty')) : Stack(
           clipBehavior: Clip.none,
           alignment: Alignment.bottomCenter,
           children: [
@@ -27,11 +28,7 @@ class CartViewBody extends StatelessWidget {
                         title: 'Cart',
                         showBackIcon: true,
                       ),
-                      context
-                              .read<CartCubit>()
-                              .cartEntity
-                              .cartItemEntity
-                              .isEmpty
+                      cubit.cartItemEntity.isEmpty
                           ? SizedBox()
                           : CartHeader(
                               count: context
@@ -47,15 +44,18 @@ class CartViewBody extends StatelessWidget {
                   ),
                 ),
                 CartSliverListItems(
-                  cartItemEntity:
-                      context.read<CartCubit>().cartEntity.cartItemEntity,
+                  cartItemEntity: cubit.cartItemEntity,
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
-              child: CustomButton(onPressed: () {}, text: 'Checkout 12 pound'),
-            ),
+            cubit.cartItemEntity.isEmpty
+                ? Container()
+                : Padding(
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    child: CustomButton(
+                        onPressed: () {},
+                        text: 'Checkout ${cubit.calculatTotalPrice()} pound'),
+                  ),
           ],
         );
       },

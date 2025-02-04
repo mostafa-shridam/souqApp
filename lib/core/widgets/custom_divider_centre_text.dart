@@ -3,7 +3,6 @@ import 'package:souq/core/utils/app_colors.dart';
 import 'package:souq/core/utils/app_text_styles.dart';
 import 'package:souq/core/utils/constants/constants.dart';
 
-
 class CustomDividerCentreText extends StatelessWidget {
   const CustomDividerCentreText({super.key, required this.text});
 
@@ -22,7 +21,7 @@ class CustomDividerCentreText extends StatelessWidget {
         ),
         Text(
           text,
-          style: TextStyles.semiBold16.copyWith(
+          style: AppText.semiBold16.copyWith(
             color: AppColors.primaryColor,
           ),
         ),
@@ -37,4 +36,3 @@ class CustomDividerCentreText extends StatelessWidget {
     );
   }
 }
-

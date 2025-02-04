@@ -27,7 +27,7 @@ class CartCubit extends Cubit<CartState> {
   }
 
   void removeItem(ProductEntity productEntity) {
-    cartEntity.cartItemEntity.remove(productEntity);
+    cartEntity.cartItemEntity.removeWhere((element) => element.productEntity == productEntity);
     emit(CartItemRemoved());
   }
 }

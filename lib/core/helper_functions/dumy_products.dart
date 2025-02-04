@@ -10,7 +10,7 @@ ProductEntity setDumyProducts() {
     description: 'description',
     price: 1,
     isFeatured: true,
-    imageUrl: null,
+    imageUrl: "",
     reviews: [],
   );
 }

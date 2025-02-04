@@ -30,13 +30,13 @@ class OnBoardingPageView extends StatelessWidget {
               children: [
                 Text(
                   S.of(context).title,
-                  style: TextStyles.bold28.copyWith(
+                  style: AppText.bold28.copyWith(
                     color: AppColors.primaryColor,
                   ),
                 ),
                 Text(
                   S.of(context).title1,
-                  style: TextStyles.bold28.copyWith(
+                  style: AppText.bold28.copyWith(
                     color: AppColors.secondaryColor,
                   ),
                 ),
@@ -53,7 +53,7 @@ class OnBoardingPageView extends StatelessWidget {
               children: [
                 Text(
                   S.of(context).title2,
-                  style: TextStyles.bold28,
+                  style: AppText.bold28,
                 ),
               ],
             ),

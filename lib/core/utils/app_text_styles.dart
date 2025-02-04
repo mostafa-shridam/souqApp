@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TextStyles {
+class AppText {
   static TextStyle baseStyle = TextStyle(
     fontFamily: 'Cairo',
     inherit: true,

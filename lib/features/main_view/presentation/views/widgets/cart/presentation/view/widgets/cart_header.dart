@@ -19,7 +19,7 @@ class CartHeader extends StatelessWidget {
           Prefs.getBool(kNewLanguage)
               ? 'لديك $count منتجات في سله التسوق'
               : 'You have $count items in your cart',
-          style: TextStyles.bold13.copyWith(
+          style: AppText.bold13.copyWith(
             color: AppColors.primaryColor,
           ),
         ),

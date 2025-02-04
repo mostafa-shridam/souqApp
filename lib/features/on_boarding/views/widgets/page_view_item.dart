@@ -56,7 +56,7 @@ class PageViewItem extends StatelessWidget {
                       },
                       child: Text(
                         S.of(context).skipButton,
-                        style: TextStyles.regular13.copyWith(
+                        style: AppText.regular13.copyWith(
                           color: Color(0xFFC7C9CA),
                         ),
                       ),
@@ -86,7 +86,7 @@ class PageViewItem extends StatelessWidget {
             child: Text(
               subtitle,
               textAlign: TextAlign.center,
-              style: TextStyles.semiBold13,
+              style: AppText.semiBold13,
             ),
           ),
         ],

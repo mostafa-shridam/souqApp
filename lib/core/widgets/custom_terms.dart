@@ -38,7 +38,7 @@ class _CustomTermsState extends State<CustomTerms> {
             child: RichText(
               text: TextSpan(
                 text: '${S.of(context).agreeConditions} ',
-                style: TextStyles.regular13.copyWith(
+                style: AppText.regular13.copyWith(
                   color: Prefs.getBool(kIsDarkMode) == false
                       ? AppColors.fillColorDark
                       : AppColors.fillColorLight,
@@ -46,7 +46,7 @@ class _CustomTermsState extends State<CustomTerms> {
                 children: [
                   TextSpan(
                     text: ' ${S.of(context).conditions}',
-                    style: TextStyles.regular13
+                    style: AppText.regular13
                         .copyWith(color: AppColors.primaryColor),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () => showTermsAndConditionsDialog(context),

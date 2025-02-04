@@ -16,17 +16,16 @@ class CustomHomeAppBar extends StatelessWidget {
       contentPadding: EdgeInsets.symmetric(horizontal: 8),
       title: Text(
         S.of(context).HelloBar,
-        style: TextStyles.regular16.copyWith(color: Color(0xff949D9E)),
+        style: AppText.regular16.copyWith(color: Color(0xff949D9E)),
       ),
       subtitle: Text(
         getUserData().name,
-        style: TextStyles.bold19,
+        style: AppText.bold19,
       ),
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(1000),
         child: Image.network(
           getUserData().image,
-        
           fit: BoxFit.fill,
           errorBuilder: (context, error, stackTrace) {
             return SvgPicture.asset(

@@ -22,12 +22,13 @@ class CustomDropDown extends StatelessWidget {
             DropdownButton(
               icon: Icon(Icons.language),
               alignment: Alignment.center,
-              hint: Text(state is ChangeLanguageSuccess ? "العربية" : 'English'),
+              hint:
+                  Text(state is ChangeLanguageSuccess ? "العربية" : 'English'),
               padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
               iconDisabledColor: Color(
                 0xffC9CECF,
               ),
-              style: TextStyles.regular16.copyWith(
+              style: AppText.regular16.copyWith(
                 color: Color(
                   0xffC9CECF,
                 ),
@@ -55,7 +56,7 @@ class CustomDropDown extends StatelessWidget {
                   onTap: () => Prefs.setBool(kNewLanguage, true),
                   child: Text(
                     'English',
-                    style: TextStyles.regular13,
+                    style: AppText.regular13,
                   ),
                   value: 'en',
                 ),
@@ -63,7 +64,7 @@ class CustomDropDown extends StatelessWidget {
                   onTap: () => Prefs.setBool(kNewLanguage, false),
                   child: Text(
                     'العربية',
-                    style: TextStyles.regular13,
+                    style: AppText.regular13,
                   ),
                   value: 'ar',
                 ),

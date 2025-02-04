@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +23,6 @@ class AccountViewBody extends StatefulWidget {
   @override
   State<AccountViewBody> createState() => _AccountViewBodyState();
 }
-
 
 class _AccountViewBodyState extends State<AccountViewBody> {
   @override
@@ -132,8 +130,10 @@ class _AccountViewBodyState extends State<AccountViewBody> {
                     ? Icons.light_mode
                     : Icons.dark_mode,
                 itemName: '${S.of(context).Theme}',
-                onChanged: (bool changeValue) {
-                  accountCubit.changeThemeMode(changeValue);
+                onChanged: (changeValue) {
+                  accountCubit.changeThemeMode(
+                    changeValue ? ThemeMode.dark : ThemeMode.light,
+                  );
                 },
                 value: Prefs.getBool(kIsDarkMode),
               ),
@@ -170,8 +170,7 @@ class _AccountViewBodyState extends State<AccountViewBody> {
                     },
                     child: Text(
                       'LogOut',
-                      style:
-                          TextStyles.semiBold16.copyWith(color: Colors.white),
+                      style: AppText.semiBold16.copyWith(color: Colors.white),
                     ),
                   ),
                 ),

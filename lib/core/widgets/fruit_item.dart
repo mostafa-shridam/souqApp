@@ -71,25 +71,26 @@ class _FruitItemState extends State<FruitItem> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CustomNetWorkImage(imageUrl: productEntity.imageUrl!),
+                    CustomNetWorkImage(
+                      imageUrl: productEntity.imageUrl!,
+                    ),
                     SizedBox(
                       height: 24,
                     ),
                     ListTile(
                       title: Text(
                         productEntity.productName,
-                        textAlign: TextAlign.start,
-                        style: TextStyles.bold16,
+                        style: AppText.bold13,
                       ),
                       subtitle: Text.rich(TextSpan(
                         text: ' جنية ${productEntity.price}',
-                        style: TextStyles.regular13.copyWith(
+                        style: AppText.regular13.copyWith(
                           color: AppColors.secondaryColor,
                         ),
                         children: [
                           TextSpan(
                             text: '/ ${productEntity.unitAmount}',
-                            style: TextStyles.regular13.copyWith(
+                            style: AppText.regular13.copyWith(
                               color: AppColors.secondaryColor,
                             ),
                           ),
@@ -127,9 +128,8 @@ class _FruitItemState extends State<FruitItem> {
                                 ),
                               )
                             : Icon(Icons.add),
-                        padding: EdgeInsetsDirectional.zero,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

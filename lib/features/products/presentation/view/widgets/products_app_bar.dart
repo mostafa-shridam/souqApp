@@ -25,7 +25,7 @@ class CustomMainAppBar extends StatelessWidget {
       title: Center(
         child: Text(
           title,
-          style: TextStyles.bold19,
+          style: AppText.bold19,
         ),
       ),
       trailing: showNotificationIcon ?? false

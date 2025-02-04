@@ -34,13 +34,15 @@ class FeaturedItem extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsetsDirectional.only(
-                  start: 28,
+                  start: 12,
                 ),
                 width: size.width * 0.5,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: svg.Svg(
-                    Prefs.getBool(kNewLanguage) ?   Assets.imagesFeaturedImage : Assets.imagesFeaturedImageRotated,
+                      Prefs.getBool(kNewLanguage)
+                          ? Assets.imagesFeaturedImage
+                          : Assets.imagesFeaturedImageRotated,
                       color: Colors.amber,
                     ),
                     fit: BoxFit.fill,
@@ -52,19 +54,11 @@ class FeaturedItem extends StatelessWidget {
                   children: [
                     Text(
                       '${S.of(context).offers} \20%',
-                      style: TextStyles.regular13.copyWith(
-                        color: Prefs.getBool(kIsDarkMode) == false
-                            ? Colors.white
-                            : Colors.black,
-                      ),
+                      style: AppText.regular13,
                     ),
                     Text(
                       '${S.of(context).offers} \20%',
-                      style: TextStyles.bold19.copyWith(
-                        color: Prefs.getBool(kIsDarkMode) == false
-                            ? Colors.white
-                            : Colors.black,
-                      ),
+                      style: AppText.bold19,
                     ),
                     FeaturedItemButton(
                       onPressed: () {},
